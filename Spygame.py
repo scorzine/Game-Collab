@@ -1,4 +1,3 @@
-from PIL import ImageTk, Image
 import os, sys, random, time, math, socket
 from PodSixNet.Connection import ConnectionListener, connection
 import Stats
