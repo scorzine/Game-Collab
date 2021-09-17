@@ -1,7 +1,7 @@
 import os, sys, random, time, math, socket
 from PodSixNet.Connection import ConnectionListener, connection
 import Stats
-import pickle
+#import pickle
 # os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 f = open(os.devnull, 'w')
 # old = sys.stdout
