@@ -2,6 +2,7 @@ import os, sys, random, time, math, socket
 from PodSixNet.Connection import ConnectionListener, connection
 import Stats
 #import pickle rick
+#MASSIVE change PLEASE review
 #import pickle
 #funni comment
 # os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
