@@ -5173,8 +5173,5 @@ class Projectile(pygame.sprite.Sprite):
 #have regular solider (builder/engineer tribe?) units be able to decrease the "casting cost" of constructs when you bulid your "deck" ???
 #press "a" to select all friendly units to mass move/attack?
 
-#specific unit ideas:
-#triple venn diagram of unit synergy/dissynergy?
-
 
 game = Game()
