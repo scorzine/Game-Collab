@@ -2,10 +2,10 @@ import os, sys, random, time, math, socket
 from PodSixNet.Connection import ConnectionListener, connection
 import Stats
 import pickle
-#this is a linezzzzzz of (or is it?) code
 # os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 f = open(os.devnull, 'w')
 # old = sys.stdout
+#   HERE COMES THE MOUNTAIN
 sys.stdout = f
 import pygame.mixer
 import pygame
