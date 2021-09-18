@@ -5098,4 +5098,80 @@ class Projectile(pygame.sprite.Sprite):
     def delete(self):
         self.kill()
 
+
+#LARGE GOALS:
+#fog of war! different thickness of fog? thick fog shows nothing, thin fog will show a shadow of a unit but not which unit is there
+#after seeing an enemy unit, they will remain in "thin" fog until the end of the turn, even if the ally unit that spotted them moves out of vision
+#click and drag to select tiles, expand the box by checking for any tile that is adjacent to two or more tiles
+#have key to hold down 'a' that allows you to see what your attack/ability range is when deciding where to move, 
+#^^ overlay the attack grid over the move grid from the new tile
+#critical hits? as a buff effectively. i would either use criticals, or static dmg number buffs, probably not both? then again adding and multiplying is fun
+#history bar of all actions taken? or just attacks/abilities?
+#hex board????
+#highlight units with queued abilities/attacks/movement with a corresponding color (ability:purple, attack:red/orange, movement:blue)
+
+#coding goals
+#possibly keep full history of all unit's actions/all general action history and then queue through them to execute the commands in order. this will keep 
+#history which is useful for stats/debug/future ability design and also probably a more consistent way to keep track of everything thats going on by having one central action hub
+#
+#gravity affected projectiles that arc over the grid, (shooting straight up would result in the projectile getting larger to simulate vertical distance)
+#make thin/thick fog
+#make sure that units cannot "see" through fog around corners. 
+#^^ make it so the unit vision cannot check left-adj tiles if they have already gone to a right-adj tile this path
+#keep list of all "marks" a unit (or tile?) may have, bounties and any effects
+#change ALL draw methods besides the first to use MOVE instead of DELETE and CREATE, it moves by x and y amount not to location x and y...
+#code stack/message readiness, EX:
+#move command is sent to both players
+#move command is put on stack
+#stack pops move command resolving its first iteration
+#move command is sent to both players
+#tile trigger is sent to both players
+#move command is put on the stack
+#tile trigger is put on the stack
+
+#Game notes: double right click to actiavte abilities with nontraditional targets, also highlight/hover highlight all affected elements
+#Eg. Activate to heal all allies = highlight all allies in purple, and then hovering over any of them would highlight them all yellow
+
+#known bugs
+#sometimes units moving into enemy vision are not shown visible
+#some tiles remain highlighted after a unit has pathed through them. fixed?
+#fix tile clicking to be more inclusive of clicks along the edge of a tile, either use the hovered tile data, or expand padding around clickable area
+#katies computer bugs: renders all grass sprites as blue, tiles merge along edges based on cerain ways they overlap, changes with hover
+#activated line shot ability of soldier does not deal damage when standing next to the target
+#inputting arrow key movement too fast will cause the unit to move from where it was a tile earlier
+
+
+#semi fixed bugs
+#hard coded the direction to flip
+
+#cleanup
+#remove extra self.delete calls in unit and tile and projectile
+#change hovertext to use the "width" feature to keep all lines of text in one text object, it automatically seperates them into lines less than the width
+#redo grass image in this so all tiles share the same image asset
+#highlight units with available actions
+#when hovering over a movement path, display how many movement tiles the player is using for that unit, and how many movement tiles they have left
+
+
+#OTHER GAME design ideas:
+#digital tactic miniature game on a grid
+#fog of war with stage hazards water/mountiants
+#roll dice as mana?
+#abilities that cost certain dice rolls to activate
+#abilities that allow you to roll more dice
+#form a "deck" of units that you have constant access to, perhaps organized in different categories on the side
+#deck must not go over a certain point limit
+#start the game by placing all/SOME of your units on the battlefield, up to a certain point threshhold, possibly different based on fog of war?
+#on left display all units that you control, on the right side display all enemy units you can see, but also keep track of all enemy units you HAVE seen 
+#but grey them out if they are currently unseen
+#have units that give you special abilities you can use? like spells in your "hand"
+#best two of three rounds, each round pick from a larger pool to make your squad each time, if any of your units die you cant use them for the next round
+#capture the flag style?
+#3 phases each turn? movement -> special ability -> basic attack
+#special abilities have turn cooldowns?
+#right click a unit to bring up menu of their activated skills, hovering over a skill displays what it does in the "effect text box" somewhere on the side
+#stationary "construct" type of units that cant move and provide another type of aura bonus or attack, 
+#have regular solider (builder/engineer tribe?) units be able to decrease the "casting cost" of constructs when you bulid your "deck" ???
+#press "a" to select all friendly units to mass move/attack?
+
+
 game = Game()
