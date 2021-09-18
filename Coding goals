@@ -1,0 +1,60 @@
+Coding goals:
+{} indicate game design reasoning for project.
+
+#MASSIVE full implementation projects:
+Move all non-ui related functionality from the client to the server.
+
+Add some kind of replay/walkback system to be able to view past moves/board states. 
+Similar to hearthstone's history bar where you can hover (or click in this case) on a series of images depicting past actions to show what happened.
+The way I picture it working in this game is also a series of thumbnails along the left?hand side where selecting it temporarily restores the board to a previous state.
+{This will help with game memory issues where its possible on the opponents turn for a unit to move in and out of stealth where an afk player might not see what happened.}
+{This would also be useful for testing if we ever want to be able to replay saved states.}
+
+
+
+#Large full implementation projects:
+Click and drag selection for multiple units. Keyboard shortcuts for selecting multiple units, possiibly using shift+number keys/Q.
+
+Reorder file structure to actually keep classes and functions in different files.
+Particularly functions that will be used by both the server and client (eg. pathfinding functions).
+
+Probably need to redo input/message/stack lockout, esp with the client/serverside changes.
+
+
+#Large partially implemented projects:
+Add additional fog status "light fog" (differing from the currently implemented fog which will be refered to as "heavy fog").
+While heavy fog completely obscures units, light fog would leave a "shadow" or dark blob showing that a unit is on that tile, but without revealing exactly what it is.
+
+Possibly restrict unit actions to only be able to move at the start of the turn. 
+{This is to prevent move -> attack -> move patterns that involve kiting in and out of stealth which is both unclear and possibly overpowered}
+
+
+#Medium projects:
+Change arrow key unit movement to be able to draw out a full path and then require an additional keystroke to send out the movement instead of moving each tile immidiately.
+
+On left display all units that you control, on the right side display all enemy units you can see, but also keep track of all enemy units you HAVE seen. But grey them out if they are currently unseen.
+
+
+#Small projets:
+Add hotkey/function to see what a units attack/ability ranges will look like from another tile in move range.
+{Just to allow the player to visualize what they can attack from a different tile.}
+
+Add better highlight visualization on units so its clear what abilities/attacks/movement they can still use. 
+Possibly with the corresponding color (ability:purple, attack:red, movement:blue).
+
+Projectile animations that arc as if effected by gravity.
+
+Double right click to actiavte abilities with nontraditional targets. Highlight any affected unit/tiles/anything.
+{Eg. Activate to heal all allies = highlight all allies in purple, and then hovering over any of them would highlight them all yellow.}
+
+When hovering over a movement path, display how many movement tiles the player is using for that unit, and how many movement tiles they have left.
+
+
+#Bugfixes:
+Units moving into enemy vision don't always show enemies that should be visible.
+
+After moving along a path, tiles along the path are not properly highlighted with movement/attack colors.
+
+Possibly need to fix tile selection by click to include edges of the tile instead of just the center (expand padding around clickable area).
+
+Fast arrowkey inputs for movement will cause incorrect movement.
