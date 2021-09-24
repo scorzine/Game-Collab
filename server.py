@@ -3,12 +3,20 @@ import PodSixNet.Server
 from time import sleep
 from time import time
 class ClientChannel(PodSixNet.Channel.Channel):
-    def Network(self, data):
+  '''client channel class docstring to do'''
+    def Network(self, data: dict):
+        '''Console log. Prints data dictionary'''
         print(data)
-    def Network_readyStatus(self, data):
+    def Network_readyStatus(self, data: dict):
+        '''
+            Feeds data into PodSixNet server object?
+        '''
         self._server.readyStatus(data)
-    def Network_recieveCommand(self, data):
-        self._server.start_time = time()
+    def Network_recieveCommand(self, data: dict):
+        '''
+            Pushes data into PodSixNet server objects
+        '''
+        self._server.start_time = time()    #    testing latency
         self._server.recieveCommand(data)
 
     #ping stuff
@@ -17,21 +25,27 @@ class ClientChannel(PodSixNet.Channel.Channel):
         # self.count = 0
         # self.times = []
 
-    def Network_ping(self, data):
+    def Network_ping(self, data: dict):
+      '''
+        Pings the player and prints out the result on the server.
+      '''
         print(self, "ping %d round trip time was %f" % (data["count"], time() - self.times[data["count"]]))
-        if self.count == 10:
+        if self.count == 10:    #   While loop.
             self.count = 0
             self.times = []
         else:
             self.Ping()
     
     def Ping(self):
+        '''
+            Pings itself. Sends a message dictionary?
+        '''
         # print(self, "Ping:", self.count)
         self.times.append(time())
-        self.Send({"action": "ping", "count": self.count})
-        self.count += 1
+        self.Send({"action": "ping", "count": self.count})  # 
+        self.count += 1 #   Move this counter to Network_ping
     #end ping stuff
-
+    
 
     # def Network_moveUnitTile(self, data):
     #     self._server.moveUnitTile(data)
@@ -58,47 +72,62 @@ class ClientChannel(PodSixNet.Channel.Channel):
     #     #tells server to place line
     #     self._server.placeLine(hv, x, y, data, self.gameid, num)
     def Close(self):
+        '''
+        Closes the server (which then closes the clients).
+        '''
         self._server.close(self.gameid)
 class BoxesServer(PodSixNet.Server.Server):
  
     channelClass = ClientChannel
     def __init__(self, *args, **kwargs):
         PodSixNet.Server.Server.__init__(self, *args, **kwargs)
-        self.games = []
-        self.queue = None
-        self.currentIndex=0
+        self.games: list = []
+        self.current_game: Game = None
+        self.currentIndex: int = 0
 
     def Connected(self, channel, addr):
+        '''
+        Matches players with each other as they connect.
+        Creates Game objects as needed.
+        '''
         print('new connection:', channel)
-        if self.queue==None:
+        if self.current_game==None:
             self.currentIndex+=1
             channel.gameid=self.currentIndex
-            self.queue=Game(channel, self.currentIndex)
+            self.current_game=Game(channel, self.currentIndex)
         else:
             channel.gameid=self.currentIndex
-            self.queue.player1=channel
+            self.current_game.player1=channel
             print("Connecting to BOTH players")
-            self.queue.player0.Send({"action": "connectedPlayers","player":0, "gameid": self.queue.gameid})
-            self.queue.player1.Send({"action": "connectedPlayers","player":1, "gameid": self.queue.gameid})
-            self.games.append(self.queue)
-            self.queue=None
+            self.current_game.player0.Send({"action": "connectedPlayers","player":0, "gameid": self.current_game.gameid})
+            self.current_game.player1.Send({"action": "connectedPlayers","player":1, "gameid": self.current_game.gameid})
+            self.games.append(self.current_game)
+            self.current_game=None
 
         channel.count = 0
         channel.times = []
         self.start_time = 0
         # channel.Ping() #ping line
 
-    def readyStatus(self, data):
+    def readyStatus(self, data):    # Redundant? Message commands already
+                                    # Message commands already exist in Game
+      '''
+      Passes on message to game instance.
+      '''
         game = [a for a in self.games if a.gameid==data["gameid"]]
         if len(game)==1:
             game[0].readyStatus(data)
 
-    def recieveCommand(self, data):
+    def recieveCommand(self, data): # Redundant? Message commands already
+                                    # Message commands already exist in Game
+      '''
+      Passes on message to game instance.
+      '''
         game = [a for a in self.games if a.gameid==data["gameid"]]
         if len(game)==1:
             game[0].recieveCommand(data)
 
-            print("Time taken to finish server operations", time() - self.start_time)
+            # print("Time taken to finish server operations", time() - self.start_time)
 
     # def moveUnitTile(self, data):
     #     game = [a for a in self.games if a.gameid==data["gameid"]]
@@ -115,6 +144,9 @@ class BoxesServer(PodSixNet.Server.Server):
     #     if len(game)==1:
     #         game[0].placeLine(is_h, x, y, data, num)
     def close(self, gameid):
+      '''
+        Closes the game instance and sends message to each player to close.
+      '''
         try:
             game = [a for a in self.games if a.gameid==gameid][0]
             game.player0.Send({"action":"close"})
@@ -151,22 +183,32 @@ class BoxesServer(PodSixNet.Server.Server):
 class Game:
     def __init__(self, player0, currentIndex):
         # whose turn (1 or 0)
-        self.turn = 0
+        self.turn = 0   # 0 and 1 is too ambiguous. Set the value to an enumerated value.
         #owner map
         self.owner=[[False for x in range(6)] for y in range(6)]
-        # Seven lines in each direction to make a six by six grid.
-        self.boardh = [[False for x in range(6)] for y in range(7)]
-        self.boardv = [[False for x in range(7)] for y in range(6)]
         #initialize the players including the one who started the game
         self.player0=player0
         self.player1=None
         #gameid of game
         self.gameid=currentIndex
     def readyStatus(self, data):
+      '''
+      Sends ready status to each player and starts the game.
+      '''
         self.player0.Send({"action": "readyStatus", "player":data["player"]})
         self.player1.Send({"action": "readyStatus", "player":data["player"]})
 
     def recieveCommand(self, data):
+        '''
+            [WIP]
+            Matches the {msg,value} to its corresponding action
+            Basically a switch state.
+            
+            Redundant function? Yes, but we'll use this system.
+
+            self.player0.Send(data)
+            self.player1.Send(data)
+        '''
         if data["msg"] in [0]:
             self.player0.Send({"action": "recieveCommand", "msg":data["msg"], "state":data["state"], "player":data["player"]})
             self.player1.Send({"action": "recieveCommand", "msg":data["msg"], "state":data["state"], "player":data["player"]})
@@ -209,29 +251,40 @@ class Game:
     #     self.player0.Send({"action": "nextPhase", "player":data["player"]})
     #     self.player1.Send({"action": "nextPhase", "player":data["player"]})
 
-    def placeLine(self, is_h, x, y, data, num):
-        #make sure it's their turn
-        if num==self.turn:
-            self.turn = 0 if self.turn else 1
-            self.player1.Send({"action":"yourturn", "torf":True if self.turn==1 else False})
-            self.player0.Send({"action":"yourturn", "torf":True if self.turn==0 else False})
-            #place line in game
-            if is_h:
-                self.boardh[y][x] = True
-            else:
-                self.boardv[y][x] = True
-            #send data and turn data to each player
-            self.player0.Send(data)
-            self.player1.Send(data)
-print("STARTING SERVER ON LOCALHOST")
+
+    # def placeLine(self, is_h, x, y, data, num):
+    #     #make sure it's their turn
+    #     if num==self.turn:
+    #         self.turn = 0 if self.turn else 1
+    #         self.player1.Send({"action":"yourturn", "torf":True if self.turn==1 else False})
+    #         self.player0.Send({"action":"yourturn", "torf":True if self.turn==0 else False})
+    #         #place line in game
+    #         if is_h:
+    #             self.boardh[y][x] = True
+    #         else:
+    #             self.boardv[y][x] = True
+    #         #send data and turn data to each player
+    #         self.player0.Send(data)
+    #         self.player1.Send(data)
+
 # try:
 # address=input("Host:Port (localhost:8002): ")
-address="localhost:8004"#"10.0.1.52:8002" this should be my local ip address anyway with the same port of 8002 but the server errors when started with the ip instad of localhost
-if not address:
-    host, port="localhost", 8004
-else:
-    host,port=address.split(":")
-boxesServe = BoxesServer(localaddr=(host, int(port)))
-while True:
-    boxesServe.tick()
-    sleep(0.01)
+
+
+def start_server() -> None:
+    '''
+    Starts server.
+    '''
+    address="localhost:8004"#"10.0.1.52:8002" this should be my local ip address anyway with the same port of 8002 but the server errors when started with the ip instad of localhost
+    print("STARTING SERVER ON " + address)
+    if not address:
+        host, port="localhost", 8004
+    else:
+        host,port=address.split(":")
+    boxesServe = BoxesServer(localaddr=(host, int(port)))
+    while True:
+        boxesServe.tick()
+        sleep(0.01)
+
+if __name__ == '__main__':
+    start_sever()
