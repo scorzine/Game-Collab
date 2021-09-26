@@ -347,6 +347,8 @@ Stealth/Camouflage ability with a number next to it indicating how strong it is 
 
 
 **Large Game Balance Changes/Decisions:**
+Needs some kind of failsafe to prevent turtling via constantly running away (eg. one flying unit zipping around the map super fast unable to be caught).
+
 To prevent insurmountable kiting and poking in and out of fog of war, possibly restrict movement to only before using attacks and abilities.  Possibly use 3 different color indicators around a unit to display what actions are left. Ie blue aura for movement, yellow for basic attack, red for special attack. By going back to the set move usage of Move → basic attack → ability, the clarity of what the unit is currently capable of would be greatly improved. For some reason mechanically ability usage feels like it would be better to activate before basic attack but that feels like it might be on a case by case basis. Could also allow for Ability/basic attack → Move. Basically not allowing the movement to be split up on each side.
 Could even add the effect to move after attacking as a specific bonus. Ie unit/tribe passive, certain abilities that “refresh” movement and/or attacks after killing a unit.
 
