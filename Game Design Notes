@@ -325,6 +325,8 @@ Ability that is like cruel taskmaster, deal 1 damage to an allied unit and give 
 
 Ability that just "pings" a random enemy on the map for 1 damage globally untargeted.
 
+Passive that causes a unit to go "dormant" after being killed, which will revive it after a few turns unless the controlling player loses the game.
+
 Passive that is like Moonfang, where each damaging hit on self only deals 1 dmg
 
 Ability that is "overloaded" where you lose movement/ability/attack turn after using it
