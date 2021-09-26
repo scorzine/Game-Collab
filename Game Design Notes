@@ -1,0 +1,418 @@
+**Terrain Types:**
+
+**Grass**: 
+**Tall Grass:** Can only be seen by units that are directly adjacent to the current tile.
+**water**: Reduces movement by one tile.
+**Mountain**: Cannot be moved through unless the unit has **flying**.
+**Forest**: Cannot be moved through unless the unit has **flying**. Can also be destroyed by damage.
+**Permafrost**: Units that end their turn on **permafrost** terrain are **chilled** until the end of their next turn.
+**Icy**: Units that end their turn on **icy** terrain are **chilled** until the end of their next turn. Units that make a directional movement onto **icy** terrain will slide in the given direction until encountering non-**icy** terrain. This uses up all remaining movement range for that unit.
+**Holy Terrain:** (Just sounds cool like the FKA Twigs song title)
+
+
+**Unit Archetypes/Tribes**
+
+**Amalgam**: (Its possible this would be a bad idea but I like the idea of being able to flesh out a comp/multi-tribe comps with a unit like this.)
+A 1 cost unit that counts toward all tribes in the game. Other than that it has perfectly average stats and a simple passive/active to not make it worth including over other single-tribe units. 
+
+
+**Chain Gang**:
+**Chained** enemies have their movement range reduced until they leave range. (One issue I have with this mechanic, is that the chain length would need to be pretty long, ideally larger than the movement stat of an average unit (3 tiles).
+
+Abilities:
+
+Line Shot that **chains** target single enemy unit to the caster.
+
+Drags target connected **chained** unit to target tile in range. 
+
+Net ability chains multiple units to the caster
+
+Places a trap that **chains** the next single enemy to the trapped tile.
+
+**Chains** all enemy units within range of all currently **chained** enemy units.
+
+Deals (execute) damage to target **chained** enemy.
+
+Passives:
+
+Deals damage to all currently **chained** enemies.
+
+**Chains** ally unit and pulls them to the closest location.
+
+Basic attacks deal bonus damage to **chained** enemies.
+
+Tribal Bonuses:
+
+1+: *Chain Gang* units' have increased movement towards chained enemy units.
+
+3+: *Chain Gang* units' abilities have increased range.
+
+*Ice Walkers***:**
+
+**Chilled** units have their movement range reduced and are **Frozen** if they would be **chilled** again.
+
+**Frozen** units are completely immobile, cannot basic attack, and cannot use their abilities.
+
+Abilities:
+
+**Freezes** target enemy in range.
+
+Line shot that **Unfreezes** target single enemy and deals execute damage.
+
+Converts adjacent **water** terrain tile and all connected **water** terrain tiles to **icy** terrain.
+
+Line shot that **chills** target single enemy unit.
+
+AoE that converts all land terrain to **permafrost** and all water terrain to **icy**.
+
+Passives:
+
+"Vengeful Frost" When this unit takes damage that reduces its health below 50%, freeze the enemy that dealt that damage. (OR) When this unit takes damage over a certain amount, freeze the enemy that dealt the damage.
+
+"Ice Skater" When this unit slides off of **icy** terrain they may continue to move as though they had not stepped on **icy** terrain.
+
+Tribal Bonuses:
+
+1+: *Ice Walker* units are unaffected by cooling effects.
+
+2+: *Ice Walker* units are unaffected by cooling and freezing effects.
+
+4+: When two or more *Ice Walker* units hit the same enemy unit with basic attacks, that enemy unit is **chilled**.
+
+
+**Blood Warriors:**
+Abilities:
+
+AoE that deals 1 damage to all units in range. Enraged bonus deals triple damage to units with full health.
+
+Line shot that pierces and deals additional damage after each unit hit. Enraged bonus increases range and damage.
+
+"Blood Lightning" Deals damage to target damaged unit within range. Repeat for a total of 3 times. Enraged bonus increases the total of jumps to 5.
+
+Passives:
+
+Unit's abilities gain additional effects of the unit has been damaged this turn.
+
+Increased movement if this unit has been dealt damage this turn.
+
+Basic attack deals bonus damage if this unit has been damaged this turn.
+
+Basic attack deals bonus damage equal to the amount of damage this unit has taken taken this turn.
+
+Tribal Bonuses:
+
+"Pain Artistry"
+
+2+: Allied units may target and attack other allied units.
+
+4+: After taking damage from an allied unit, restore 1 health.
+
+
+**Ninja Tribe:**
+
+Decoy Ninja unit: ability that puts down a statue that appears as unit in light fog
+
+Passive: upon being dealt lethal damage, if a decoy is set, swap places with the decoy and set units health to 1
+
+Disguised/changeling ninja: 
+
+Active: disguises self into a copy of allied unit/decoy
+
+Passive: after being revealed by an enemy (attacked), this unit launches a counterattack (deals damage and teleports to enemy)
+
+Stealth ninja unit: passive starts in stealth and is revealed after attacking or using an ability. Stealth resets after killing an enemy unit.
+
+Active/passive deals bonus damage to unit in melee range.
+
+
+**Crazy experimental unit**:
+
+Has 10 team cost, basically living out the boss monster fantasy.
+
+**Cloudulon** (thundercloud) unit:
+
+Takes up multiple unit spaces, flying over mountains (and enemy units!?), multiple abilities.
+
+Passive ability: precipitation starts at the beginning of the round, and progresses over the games turns. Stage 1: Rain floods the entire map (Expands rivers? Creates new water? Other effects?) Stage 2: Snow falls “chilling” enemies reducing their movement. Stage 3: Hail cascades from the sky dealing damage to all enemies at the end of each (both players?) turn.
+
+Thunderclap: stuns all enemies within 3 units of the cloud.
+
+Lightning storm: strikes lightning dealing damage to all enemies UNDERNEATH the cloud dealing large amounts of damage.
+
+Wind gust(-actios?): either pulls/pushes all enemies towards/away from Cloudulon or causes a directional gust to swell across the battlefield pushing all units a few tiles in that direction. (Pull/push is more flavorful but might be a little too synergistic with lightning storm, directional gust feels more balanced and trickier to use effectively)
+
+
+**Elemtentalist/weather “tribe”:**
+
+These units should be relatively low statted, but have large amounts of utility that make them also useful includes in other team compositions. Would be cool to also be able to create a viable team composition by including one of each element (assuming they cost 2), although this team would likely be lacking in damage and consist pretty much entirely of utility units.
+
+Need to figure out how differing weather effects interact with each other. Currently **Rain**, **Snow**, **Hail**, and **Sun** are options. Could do Pokemon style, where whenever a new weather effect comes into play, it overwrites any previous effect. An issue with this method could be that if we create units that are incredibly reliant on their current weather, matching up against an enemy that overwrites it would be a bit coinflippy. 
+
+The main issue with this "elementalist" tribe is that all of their weather effects are passives, so would need to figure out how to handle multiple of these effects triggering at the start of the game, both allied and enemy triggers. 
+
+Wind control stall unit:
+
+Passive: tailwind increases movement of all ally units (within a range?).
+
+Active: low cooldown pushes a gust of wind across the map pushing all enemy units 1 tile in any cardinal direction (global). If unit would run into a mountain or other unit, deal 1 damage to it.
+
+Fog unit:
+
+Passive: Decreases vision of enemy units at the start of the game (either light fog or heavy fog or both by 1 tile)
+
+Active: Low cooldown ability that clears an area anywhere on the map of fog (think blue trinket from LoL) for a turn or two.
+
+Blizzard unit (also part of ice tribe):
+
+Passive: Changes the weather to hail at the start of the game, which deals 1 damage to all units globally at the end of each turn (this is likely much too overpowered, so probably need to change it to either only dealing damage every few turns, or having the damage be dealt or not dealt randomly).
+
+Active: **Freezes** and damages all enemies in a 1-2-3 tile cone in front itself.
+
+Sun (also part of fire tribe):
+
+Passive: Changes the weather to sunny, providing an extra tile of vision (either light fog or heavy fog or both) to all ally units.
+
+Active: **Solar Beam**: Deals damage in a line skillshot passing through enemies but not terrain.
+
+Rain/lightning:
+
+Passive: Changes the weather to rain, spawning additional water tiles across the map.
+
+Active: **Thundercloud**: Causes a stormy cloud to appear over a set of tiles anywhere on the map. The storm lasts a certain amount of turns and causes lightning to strike the area (3x3 aoe) at the end of each turn (ally and enemy turns).
+
+
+**Top down tribe themes:**
+
+Whirlpools, lava, quicksand?
+
+Spore tribe that implants mind control agents that take hold slowly.
+
+"Religious" Tribe that revolves around "praying" to a higher power (the player) to smite their enemies. Activating one of these units abilities would increase the "devotion" towards the player and would eventually allow the player to have expanded vision of the map, use special player abilities to damage/effect enemies, and heal allies/buff their stats. Whenever a praying unit dies this reduces the player devotion. Units can increase devotion by praying (simple activation), creating shrines (destructible objects), ritual sacrifice (low range ability execute on a low health unit)
+
+“Silencer” (dota 2) aggro tribe based around delaying opponent abilities.
+
+Midrange 2-3ish cost unit:
+
+Passive: basic attacks reduce enemy cooldown by 1
+
+Active: throws emp grenade to target location reducing all enemy cooldowns in the aoe
+
+
+**Bottom up tribe themes**:
+
+"Storm" Mechanic from mtg tribe where unit do more damage scaling with the number of units that used their abilities or attacked before them
+
+
+**Time magic tribe**:
+
+5 cost unit has long cool down ability that grants an extra turn
+
+3 cost unit can reset players turn to the start (basically used to glean information/take back bad plays)
+
+
+
+**Generic Tribal Mechanics**:
+
+Tribal bonus that heals all allied units whenever an enemy is destroyed.
+
+Tribal bonus that all basic attacks from allied units heal for a % of their damage.
+
+Tribal bonus that causes enemies to explode on death dealing damage equal to their maximum health to nearby enemies.
+
+Tribal bonus that reduces the starting cooldown of allied units abilities.
+
+
+**Generic Unit Mechanics**:
+
+"Bounty Hunter" ability that can only be used after killing or damaging a marked (by passive) enemy.
+
+"Vengeance" ability that can only be used on a unit that dealt damage to the activating unit (or perhaps increased damage).
+
+Ability that creates a tunnel/teleporter between two points.
+
+"Initiate" Ability that gains the tribal tag of target ally unit (this becomes redundant if an amalgam all tribe unit is printed).
+
+Ability that mass teleports all units in an AoE around them.
+
+Ability that teleports a singe target (ally/enemy) unit.
+
+Ability that randomly swaps the location of all units.
+
+Ability that swaps an ally and an enemy unit.
+
+Ability that upgrades after each use. (Fire Blast → Lightning Bolt → Meteor)
+
+Abilty that creates a shadow copy of target enemy that will copy and follow that enemy's movement. Deals damage on collision.
+
+"Dash" ability that is simply an extra movement step for that unit.
+
+Ability that detonates a delayed AoE at the end of opponents next turn (after movement).
+
+Ability deals damage scaling with the number of friendly units that basic attacked this turn.
+
+Ability deals damage scaling with the number of consecutive basic attacks this unit has made.
+
+Ability that activates only if they are the only remaining ally unit on the board, to destroy itself and summon very powerful demon unit in its place.
+
+Passive that reveals itself wherever it is in the fog of war.
+
+"Inter-dimensional Sacrifice" ability that destroys any number of your own units to summon a unit from your deck with cost equal to the total cost of units sacrificed (-1). Robot Tribal?
+
+Ability to teleport to a random location on the map. (Since this could potentially be extremely annoying and uninteractive, cap the max uses to 3)
+
+Passive that deals AoE damage on death.
+
+Passive that heals ally units whenever they teleport.
+
+Passive that damages units whenever they teleport.
+
+Passive that brings fog of war/stealth when moving that is then broken after making a basic 
+attack or activating certain abilities.
+
+Passive that increases your movement range if you basic attacked an enemy last turn.
+
+Passive basic attacks reduce ability cooldowns.
+
+Passive that makes unit immune for the rest of the turn after taking damage.
+
+Ability/Passive that marks enemies on hit, and then activates to consume the marks and deal damage to a single target scaling with the total number of marks.
+
+Ability/Passive that marks tiles that the unit moves over, and activates to consume the marks and deal damage scaling with the total number of marks.
+
+Passive that gives the unit stats based on unused production points.
+
+Passive that converts damage dealt into a stored amount, with an activated ability that detonates for double the stored damage.
+
+Ability that can place a forest sapling that grows into a destructible tree after 1 turn.
+
+Passive that doubles the damage of the unit's first basic attack of the game. (Very aggro unit, combos well with other buffs from other units)
+
+Passive that makes the unit deploy late, a few turns after the game has started.
+
+Ability that reveals itself to the enemy and then damages a random enemy on the map that is at full health. 1cd
+
+Ability that can be "charged" every (other) turn to increase damage and then activate on an enemy to expend all charges and damage.
+
+Ability that starts on a high cooldown and reduces the max cooldown by 1 turn after every use.
+
+Ability that starts on a low cooldown with low damage that increases the max cooldown and damage after every use.
+
+Ability that launches a grappling hook in a straight line that then pulls the unit to the first solid object (mountain) hit in range. 1cd
+
+Ability that creates a hurricane that deals damage and afflicts other status effects on any units that are not on any of the "eye of the storm" tiles in the center of the effect.
+
+Ability that deals damage equal to the number of allied units you control/number of allied units in a certain radius.
+
+Ability on a weak unit that summons a copy of itself with a long cooldown.
+
+Ability that "blinds" enemy units reducing their tile vision
+
+Ability that is just Irelia E basically.
+
+Ability that is like cruel taskmaster, deal 1 damage to an allied unit and give it +2 movement
+
+Ability that just "pings" a random enemy on the map for 1 damage globally untargeted.
+
+Passive that is like Moonfang, where each damaging hit on self only deals 1 dmg
+
+Ability that is "overloaded" where you lose movement/ability/attack turn after using it
+
+Ability that gives a “Minesweeper” type blue ward/grenade that tells you how many units there are in the area
+
+Maybe overall player ability to "stasis" a unit and make it invulnerable to damage but unable to move or attack, of course would either be a once per game effect or limited use in another capacity. 
+
+Stealth/Camouflage ability with a number next to it indicating how strong it is correlating with the radius it can be unseen from in proximity to an enemy unit. ie "Tier 3 Stealth: cannot be seen unless within 3 tiles of an enemy"
+
+**Assassin:** after this unit deals lethal damage to an enemy, this unit may move again/this unit may move a set X tiles.
+
+**Tracking Shot:** Low cool down low damage move that allows the unit to move an additional tile in the direction the projectile was fired if it connects with an enemy.
+
+**Rampage:** After this unit deals lethal damage to an enemy, this unit has its basic attack refreshed and may move an additional X tiles that remain within view of an enemy.
+
+**Exhaust**: Passive mechanic for a tribe, attacking or using abilities "exhausts" all remaining movement (for a possible beneficial effect).
+
+
+**Large Game Balance Changes/Decisions:**
+To prevent insurmountable kiting and poking in and out of fog of war, possibly restrict movement to only before using attacks and abilities.  Possibly use 3 different color indicators around a unit to display what actions are left. Ie blue aura for movement, yellow for basic attack, red for special attack. By going back to the set move usage of Move → basic attack → ability, the clarity of what the unit is currently capable of would be greatly improved. For some reason mechanically ability usage feels like it would be better to activate before basic attack but that feels like it might be on a case by case basis. Could also allow for Ability/basic attack → Move. Basically not allowing the movement to be split up on each side.
+Could even add the effect to move after attacking as a specific bonus. Ie unit/tribe passive, certain abilities that “refresh” movement and/or attacks after killing a unit.
+
+
+Game feels like it will need an additional incentive or secondary objective to prevent turtling, specifically because of FoW.  Without a specific reason to venture out beyond a player's starting side, the game may feel directionless and slow. 
+
+**Ideas for neutral objectives:** 
+
+"Jungle" camps located near the middle of the map that can be killed for bonus (problem with this idea is that it would be hard to create a reward that doesn't use some kind of gold or XP value that doesn't work with this game, especially if the camps respawn with increasing difficulty).
+
+"Control point" located near the middle of the map to provide some kind of bonus or win condition (this one feels a little too much like a different game mode). 
+
+**Ideas for incentive rewards:** 
+
+Securing a neutral objective could provide either targeted or random vision of enemy or neutral territory (similar to a blue trinket).
+
+Gives the player a certain amount of production points that allows them to either buy or resurrect a unit with that value.
+
+Give both teams full vision of their side of the base at all times?
+
+
+
+**Levels to the stealth that is synced with the fog:**
+
+eg:
+
+Level 1: no stealth
+
+Level 2: light fog/pseudo stealth, a unit it shown to be on the map, but no specific details or which unit it is is shown
+
+Level 3: heavy fog, stealth: unit is not visible to enemies at all
+
+Level 4: true stealth, cannot be visible unless directly next to (melee range) an enemy
+
+
+Damage Types?: (this is almost definitely a bad idea and would add too much complexity to the game, not to mention coinflippy matchups between teams)
+
+Elemental damage or just physical/magical?
+
+Physical damage (explosions, bullets, melee) can be used to destroy pieces of the environment such as mountains or chests.
+
+Magical? Damage (lasers, spells, ethereal/intangible projectiles)
+
+
+
+**Alternative Gamemodes:**
+**Team Deathmatch** (default)
+Destroy all enemy units to win the match.
+**Capture the Flag:**
+Place a flag object somewhere in your allied territory and whoever captures the enemies flag first wins the match. Capturing can either be done by immediately winning once you step onto the tile with the enemies flag to win, or you have to deliver it back into allied territory to win.
+**Draft:**
+Probably hearthstone arena style where you pick one of three options repeatedly.
+**Commander:**
+Select one of your highest cost units to be your commander, where you win the match by only having to destroy your opponents commander. Possibly make it so that you can only your commander can deal damage to the opponents commander or can only deal the finishing blow to your opponents commander.
+
+**Misc Notes**:
+Neutral Enemies that either player can interact with? Passive/Hostile. Small Jungle Basically
+Chests to find around the map?
+Chest/Neutral Enemy rewards? Reduce CD of abilities, light up enemy territoy. Give the location of all enemies by putting thin fog
+Caves that take units to another area of the map??
+Have an enemy like the detached hand in the forest in Link to the Past
+Units that gain "experience" and level up to unlock attacks and abilities?
+Magnet Mechanic like in LoZ Oracle of Seasons?
+Two robot factions, two solutions to the ship of Theseus, one about rebuilding robots, one about tearing them down and making new
+TF2 crate style for unlocking new units?
+Crates are random drops/login bonus? You earn a third of a Key (key fragment) on every win.
+If an enemy walks into your vision, that enemy will stay revealed until the end of your next turn?
+Full movement and attack control with keyboard, arrows to move, some other button to toggle attack targets
+Structures and outposts that can be "crewed" by units. (Crew mechanic like mtg? based on cost instead of power?)
+Hexproof? Different versions for can't be targeted by attacks or abilities or both.
+Board maps that aren't a square shape, could involve missing blocks/chasms and an island like edge shape.
+Use arrow shape to show where units will move.
+Moving Ship Maps???
+With moving rooms that move/connect every few turns.
+Operatable gunships/artilery???
+
+
+**Assets:**
+Kenney:
+Version 40/Art:
+Roguelike
+Space Shooter assets
+Topdown Tanks
