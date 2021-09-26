@@ -1,3 +1,13 @@
+**Unit Definitions:**
+Tribe Tags:
+Health:
+Movement:
+Basic Attack Range:
+Basic Attack Damage:
+Ability Cooldown:
+Ability Starting Cooldown:
+
+
 **Terrain Types:**
 
 **Grass**: 
@@ -188,6 +198,7 @@ Whirlpools, lava, quicksand?
 Spore tribe that implants mind control agents that take hold slowly.
 
 "Religious" Tribe that revolves around "praying" to a higher power (the player) to smite their enemies. Activating one of these units abilities would increase the "devotion" towards the player and would eventually allow the player to have expanded vision of the map, use special player abilities to damage/effect enemies, and heal allies/buff their stats. Whenever a praying unit dies this reduces the player devotion. Units can increase devotion by praying (simple activation), creating shrines (destructible objects), ritual sacrifice (low range ability execute on a low health unit)
+
 
 “Silencer” (dota 2) aggro tribe based around delaying opponent abilities.
 
