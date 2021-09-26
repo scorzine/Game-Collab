@@ -34,6 +34,8 @@ Change arrow key unit movement to be able to draw out a full path and then requi
 
 On left display all units that you control, on the right side display all enemy units you can see, but also keep track of all enemy units you HAVE seen. But grey them out if they are currently unseen.
 
+Create some indicator of what tiles the enemy can see for each enemy unit that is visible.
+
 
 #Small projets:
 Add hotkey/function to see what a units attack/ability ranges will look like from another tile in move range.
