@@ -333,6 +333,8 @@ Ability that is "overloaded" where you lose movement/ability/attack turn after u
 
 Ability that gives a “Minesweeper” type blue ward/grenade that tells you how many units there are in the area
 
+Ability that siphons health off of an ally to restore health to another ally (2:1 ratio?)
+
 Maybe overall player ability to "stasis" a unit and make it invulnerable to damage but unable to move or attack, of course would either be a once per game effect or limited use in another capacity. 
 
 Stealth/Camouflage ability with a number next to it indicating how strong it is correlating with the radius it can be unseen from in proximity to an enemy unit. ie "Tier 3 Stealth: cannot be seen unless within 3 tiles of an enemy"
