@@ -51,6 +51,9 @@ Double right click to actiavte abilities with nontraditional targets. Highlight 
 
 When hovering over a movement path, display how many movement tiles the player is using for that unit, and how many movement tiles they have left.
 
+Decode string into unit general stats and current stats.
+Executable app.
+
 
 #Bugfixes:
 Units moving into enemy vision don't always show enemies that should be visible.
