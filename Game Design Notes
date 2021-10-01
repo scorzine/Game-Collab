@@ -20,6 +20,7 @@ Passive:
 **Icy**: Units that end their turn on **icy** terrain are **chilled** until the end of their next turn. Units that make a directional movement onto **icy** terrain will slide in the given direction until encountering non-**icy** terrain. This uses up all remaining movement range for that unit.
 
 
+
 **Unit Archetypes/Tribes**
 
 **Amalgam**: (Its possible this would be a bad idea but I like the idea of being able to flesh out a comp/multi-tribe comps with a unit like this.)
@@ -197,6 +198,7 @@ Whirlpools, lava, quicksand?
 
 Spore tribe that implants mind control agents that take hold slowly.
 
+
 **Builder Faction:**
 Faction Bonus:
 3+: Reduce starting cooldown of all builders by X
@@ -265,6 +267,7 @@ Smite: Destroy Enemy Unit
 Omnipotence: 
 
 
+
 “Silencer” (dota 2) aggro tribe based around delaying opponent abilities.
 
 Midrange 2-3ish cost unit:
@@ -285,6 +288,7 @@ Active: throws emp grenade to target location reducing all enemy cooldowns in th
 
 3 cost unit can reset players turn to the start (basically used to glean information/take back bad plays)
 
+
 **Control Archetype Units:**
 "Removal" Unit:
 Ability: Destroy a 1-cost unit, low starting cooldown, long recharge cooldown (possibly increasing in strenth "destroy a 2-cost unit" etc...)
@@ -294,6 +298,7 @@ Teleporting Unit:
 
 **Aggro Archetype Units:**
 Unit whose ability can be used for both forward momentum and also damage.
+
 
 
 **Generic Tribal Mechanics**:
@@ -452,6 +457,7 @@ Movement increased for all ally units.
 **Kiting prevention and melee unit sticking power:**
 Base idea: Any movement input while next to an enemy costs 1 additional tile.
 Additional ideas: Opportunity attacks.
+
 
 
 **Levels to the stealth that is synced with the fog:**

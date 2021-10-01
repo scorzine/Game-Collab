@@ -5,7 +5,6 @@ import pickle
 # os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 f = open(os.devnull, 'w')
 # old = sys.stdout
-#   HERE COMES THE MOUNTAIN
 sys.stdout = f
 import pygame.mixer
 import pygame

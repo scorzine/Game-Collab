@@ -1,0 +1,17 @@
+Programming style
+
+Eg:
+HORIZONTAL SPACING:
+Indentation: Tabs (4 spaces)
+Max Line Length: ?
+
+VERTICAL SPACING:
+Line breaks between function definitions: ?
+Line breaks between class definitions: ?
+
+CASE CONSISTENCY:
+File names: CamelCase
+Class names: CamelCase
+Function names: camelCase
+Variable names: camel_case/camelCase
+Boolean variable names: isCamelCase
