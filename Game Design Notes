@@ -243,6 +243,10 @@ Slow Knight Unit:
 Passive: 
 Active: 
 
+"Holy Terrain" Unit: (Creates "blessed ground" somehow that buffed allied religious units.)
+Passive: Creates a 3x3 area around itself of "holy terrain" that lingers over tiles that it moves past.
+Active: 
+
 Paladin Unit (3-Cost):
 Passive: Basic attacks scale in damage with devotion.
 Active: Deals damage to an enemy, if that enemy dies gain X devotion.
