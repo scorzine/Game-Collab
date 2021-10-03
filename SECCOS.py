@@ -1654,8 +1654,8 @@ class Game(ConnectionListener):
         self.selected_sprites = []
 
 
-    def new_button(self, x1: float, y1: float, x2: float, y2: float, border_color: str, fill_color: tuple, hover_highlight: tuple, text: str, size_mult: int, center_text: bool):
-        new_button = Button(self.screen, x1, y1, x2, y2, border_color, fill_color, hover_highlight, text, size_mult, center_text)
+    def new_button(self, x1: float, y1: float, x2: float, y2: float, border_color: str, fill_color: tuple, hover_highlight: tuple, text: str, size_mult: int, is_center: bool):
+        new_button = Button(self.screen, x1, y1, x2, y2, border_color, fill_color, hover_highlight, text, size_mult, is_center)
         self.drawn_elements.append(new_button)
         return(new_button)
 
@@ -4096,9 +4096,87 @@ class Game(ConnectionListener):
 
 
     #other classes######################################################################################################################################################
-class Button(pygame.sprite.Sprite):
-    def __init__(self, screen, x1: float, y1: float, x2: float, y2: float, border_color: tuple, fill_color: tuple, hover_highlight: tuple, fill_items, size_mult: float, center_text: bool):
 
+class UI_Element(pygame.sprite.Sprite):
+    def __init__(self, screen, x1, y1, x2, y2):
+
+      self.screen = screen
+    
+      self.surface = pygame.Surface([abs(x1-x2), abs(y1-y2)])
+      self.bounding_coords = self.surface.get_rect(x=x1, y=y1)
+
+    def draw():
+        self.screen.blit(self.surface, self.bounding_coords)
+
+class Box_Element(UI_Element):
+    "Element with a fill and border color."
+    def __init__(self, screen, x1, y1, x2, y2, border_color, fill_color):
+        # Initialize parent variables
+        super().__init__(self, screen, x1, y1, x2, y2)
+
+        # Initialize Variables
+        self.PADDING: int = 7   # Figure out where to put global constants
+                                # Might not belong here
+        self.border_color: tuple = border_color
+        self.fill_color: tuple = fill_color
+        
+        if self.border_color is not None:
+            self.surface.fill(self.border_color)
+            
+        if self.fill_color is not None:
+            self.surface.fill(
+                self.fill_color,
+                self.bounding_coords.inflate(-1*self.PADDING, -1*self.PADDING)
+                )
+
+class Dynamic_Box_Element(Box_Element):
+    "Element with a fill and border color that can change."
+    
+    def __init__(self, screen, x1, y1, x2, y2, border_color, fill_color, border_hover_color, fill_hover_color):
+        # Initialize parent variables
+        super().__init__(self, screen, x1, y1, x2, y2, border_color, fill_color)
+
+        # Initialize variables
+        self.base_border_color = self.border_color
+        self.base_fill_color = self.fill_color
+        self.border_highlight_color = border_highlight_color
+        self.fill_highlight_color = fill_highlight_color
+        
+    def recolor(border_color, fill_color):
+        "Sets the border and fill color"
+        self.surface.fill(border_color)
+        self.surface.fill(fill_color, self.bounding_coords.inflate(-1*self.PADDING, -1*self.PADDING)
+
+    def highlight(is_highlighted: bool):
+        "Toggles the base/highlight border and fill colors."
+        if is_highlighted: #    Changes to highlight color
+            self.border_color = self.border_highlight_color            
+            self.fill_color = self.fill_highlight_color
+
+        else:   # Reverts back to base color
+            self.border_color = self.base_border_color
+            self.fill_color = self.base_fill_color
+            
+        recolor(self.border_color, self.fill_color)
+        
+class Text_Element(UI_Element):
+    # Creates a surface with text.
+    # Add highlight function
+    # Create two types of init? One that takes coords as args, one that takes a surface to blit onto as an arg.
+    
+class Image_Element(UI_Element):
+    #   Creates a surface with an image.
+
+
+class Button(pygame.sprite.Sprite): #   Change to inherit from UI_Element
+    def __init__(
+        self, screen,
+        x1: float, y1: float, x2: float, y2: float, 
+        border_color: tuple, fill_color: tuple,
+        hover_highlight: tuple, fill_items: list,
+        size_mult: float,
+        is_center: bool
+        ):
 
         self.screen = screen
         self.x1 = x1
@@ -4113,22 +4191,25 @@ class Button(pygame.sprite.Sprite):
         self.hover_highlight = hover_highlight
 
         super().__init__()
+
         self.box = pygame.Surface([abs(x1-x2), abs(y1-y2)])
         if border_color is not None:
             self.box.fill(border_color)
         if fill_color is not None:
             self.box.fill(fill_color, self.box.get_rect().inflate(-7, -7))
 
+        #   The following block can be created in one constructor line
         self.box_rect = self.box.get_rect()
         self.box_rect.x = x1
         self.box_rect.y = y1
-
+        
+        #   Check to see if self.rect and self.box_rect is redundant
         self.rect = self.box_rect
 
         if not isinstance(fill_items, list):
             fill_items = [fill_items]
 
-        self.center_text = center_text
+        self.is_center = is_center
         self.margin = 10
         self.dynamic_box_height = False
 
@@ -4148,13 +4229,13 @@ class Button(pygame.sprite.Sprite):
                     surface = font.render(text, True, pygame.Color("black"), pygame.Color("white"))
                     surface.set_colorkey(pygame.Color("white"))
                     rect = surface.get_rect()
-                    if self.center_text:
+                    if self.is_center:
                         rect.center = ((x1+x2)/2, (y1+y2)/2)
                     else:
                         rect.x = x1+self.margin
                         rect.y = y1+self.margin
                 else:
-                    # if self.center_text:
+                    # if self.is_center:
                     surface, rect = self.prep_text(x1, y1, self.box, text, font)
                     # else:
                     #     surface = font.render(text, True, pygame.Color("black"), pygame.Color("white"))
@@ -4182,20 +4263,25 @@ class Button(pygame.sprite.Sprite):
         
 
 
-    def prep_text(self, x1: float, y1: float, surface, text: str, font):
+    def prep_text(self, x1: float, y1: float, surface, text: str, font: Font):
         text_surfaces = []
         text_rects = []
 
         words = [word.split(' ') for word in text.splitlines()]  # 2D array where each row is a list of words.
-        space = font.size(' ')[0]  # The width of a space.
+        space = font.size(' ')[0]  # The width of a space. size() returns (width, height)
         base_width, base_height = surface.get_size()
-        max_width = base_width*0.8
-        base_x = x1 + (base_width - max_width)/2
-        x, y = base_x, y1
-        max_x = x + max_width
-        max_line_width = 0
+        max_width = base_width*0.8  # Change this to scale with border margin/padding.
+                                    # Note: This is a constant.
+        base_x = x1 + (base_width - max_width)/2 # Shifts position right of margin.
+                                                 # Identical to:
+                                                 #  - base_x = x1 + (base_width * (1 - padding))
+        x, y = base_x, y1       # Mutable coopies of base_x, y1
+        max_x = x + max_width   # Right x-boundary of text x-pos
+        max_line_width = 0      # Supremum of max boundary.
 
-        if text == "":
+        if text == "":  # Case: Empty String
+            # Prepare Surface object and pushes to text_surfaces list.
+            # Prepare Rect object and pushes to rects list
             line_surface = font.render(text, True, pygame.Color("black"), pygame.Color("white"))
             line_surface.set_colorkey(pygame.Color("white"))
             text_surfaces.append(line_surface)
@@ -4205,15 +4291,18 @@ class Button(pygame.sprite.Sprite):
             text_rects.append(text_rect)
         else:
             for line in words:
-                new_line = ""
+                new_line = ""   # String result.
                 line_width = 0
                 for word in line:
                     word_surface = font.render(word, 0, pygame.Color("black"))
                     word_width, word_height = word_surface.get_size()
-                    if x + word_width > max_x:
+                    if x + word_width > max_x:  # Case: word overflows past right-boundary
                         if line_width > max_line_width:
                             max_line_width = line_width
-                        line_width = 0
+                        line_width = 0  # Reset line_width for next line.
+                                        # Should be grouped with other resetting code.
+                        
+                        # Prepare Surface and Rect objects. Pushes to respective lists.
                         line_surface = font.render(new_line, True, pygame.Color("black"), pygame.Color("white"))
                         line_surface.set_colorkey(pygame.Color("white"))
                         text_surfaces.append(line_surface)
@@ -4222,10 +4311,10 @@ class Button(pygame.sprite.Sprite):
                         text_rect.y = y
                         text_rects.append(text_rect)
 
-                        new_line = word + " "
+                        new_line = word + " "   # Concatenates to string result.
 
-                        x = x1
-                        if word != line[-1]:
+                        x = x1  # Reset to starting x-pos
+                        if word != line[-1]:    # Set y-pos to next line. Similar to newline.
                             y += word_height
 
                     else:
@@ -4233,10 +4322,15 @@ class Button(pygame.sprite.Sprite):
                         x += word_width + space
                         line_width += word_width + space
 
-                        if word == line[-1]:
+                        if word == line[-1]:    # Reset 
+                                                # Use `word is line[-1]`
+                                                # - Faster to check address than to compare strings.
                             if line_width > max_line_width:
                                 max_line_width = line_width
-                            line_width = 0
+                            line_width = 0  # Reset line_width for next line.
+                                            # Should be grouped with other resetting code.
+
+                            # Prepare Surface and Rect objects. Pushes to respective lists.
                             line_surface = font.render(new_line, True, pygame.Color("black"), pygame.Color("white"))
                             line_surface.set_colorkey(pygame.Color("white"))
                             text_surfaces.append(line_surface)
@@ -4252,7 +4346,8 @@ class Button(pygame.sprite.Sprite):
 
             y_index = 0
             for line_rect in text_rects:
-                if self.center_text:
+                if self.is_center:
+                    # Set line alignment to center.
                     line_rect.x = x1 + (base_width - max_line_width)/2
                     y_offset = (base_height - len(text_rects)*word_height)/2
                     line_rect.y += y_offset
@@ -4279,18 +4374,21 @@ class Button(pygame.sprite.Sprite):
         return text_surfaces, text_rects
 
 
-    def change_text(self, index: int, text: str, size_mult: float):
-        if "png" not in text:
+    def change_text(self, index: int, text: str, size_mult: float) -> None:
+        'Replaces element in secondary lists with an input string-based text or an image.'
+
+        if ".png" not in text:  # Intention: Could not find a source image.
             # old_coords = self.secondary_rects[index][0].center
 
             self.secondary_texts[index] = text
-            if size_mult is not None:
+            if size_mult is not None:   # this suggests size_mult is an optional arg.
+                                        # size_mult argument should default to None.
                 self.secondary_mults[index] = size_mult
             else:
-                size_mult = self.secondary_mults[index]
+                size_mult = self.secondary_mults[index] # is okay to alter the size_mult argument?
 
             font = pygame.font.Font('freesansbold.ttf', round(14*size_mult))
-            # if self.center_text:
+            # if self.is_center:
             #     # if isinstance(self.secondary_surfaces[index], list):
             #     #     old_coords = self.secondary_rects[index][0].center
             #     self.secondary_surfaces[index], self.secondary_rects[index] = self.prep_text(self.x1, self.y1, self.box, text, font)
@@ -4303,12 +4401,19 @@ class Button(pygame.sprite.Sprite):
             #     self.secondary_rects[index] = self.secondary_surfaces[index].get_rect()
             #     self.secondary_rects[index].center = old_coords
 
-            if len(text.split(' ')) == 1:
-                old_coords = self.secondary_rects[index].center
+            if len(text.split(' ')) == 1:   # Case 1: Single-word text?
+                                            # Can prep_text() not handle single-word inputs?
+
+                # It might be more readible to construct a Surface object here and alter the 
+                # secondary_surface list once, as opposed to making repeated index calls.
+
+                # Performance might be neglibly more expensive.
+
+                old_coords = self.secondary_rects[index].center # old_center_cords
                 self.secondary_surfaces[index] = font.render(text, True, pygame.Color("black"), pygame.Color("white"))
                 self.secondary_surfaces[index].set_colorkey(pygame.Color("white"))
                 self.secondary_rects[index] = self.secondary_surfaces[index].get_rect()
-                if self.center_text:
+                if self.is_center:
                     self.secondary_rects[index].center = ((self.x1+self.x2)/2, (self.y1+self.y2)/2)
                 else:
                     self.secondary_rects[index].center = old_coords
@@ -4318,14 +4423,17 @@ class Button(pygame.sprite.Sprite):
                 self.secondary_surfaces[index], self.secondary_rects[index] = self.prep_text(self.x1, self.y1, self.box, text, font)
 
         else:
-            old_coords = self.secondary_rects[index].center
+            old_coords = self.secondary_rects[index].center # old_center_cords
 
+            # repeated code found in if block. Can be moved outside.
             self.secondary_texts[index] = text
             if size_mult is not None:
                 self.secondary_mults[index] = size_mult
             else:
                 size_mult = self.secondary_mults[index]
+            #
 
+            # Replace this with change_image()?
             self.secondary_surfaces[index] = pygame.image.load(text).convert_alpha()
             self.secondary_surfaces[index] = pygame.transform.scale(self.secondary_surfaces[index], (round(abs(self.x1-self.x2)*size_mult), round(abs(self.y1-self.y2)*size_mult)))
 
@@ -4333,7 +4441,7 @@ class Button(pygame.sprite.Sprite):
 
             self.secondary_rects[index].center = old_coords
 
-    def change_image(self, index: int, text: str, size_mult: float):
+    def change_image(self, index: int, text: str, size_mult: float) -> None:
         old_coords = self.secondary_rects[index].center
 
         self.secondary_surfaces[index] = pygame.image.load(text).convert_alpha()
@@ -4373,7 +4481,7 @@ class Button(pygame.sprite.Sprite):
             self.drawn_elements.append(self.img)
 
         
-
+    # Wrapper function around Sprite.kill()
     def delete(self):
         self.kill()
 
