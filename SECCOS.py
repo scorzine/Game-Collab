@@ -4105,7 +4105,7 @@ class UI_Element(pygame.sprite.Sprite):
       self.surface = pygame.Surface([abs(x1-x2), abs(y1-y2)])
       self.bounding_coords = self.surface.get_rect(x=x1, y=y1)
 
-    def draw():
+    def draw(self):
         self.screen.blit(self.surface, self.bounding_coords)
 
 class Box_Element(UI_Element):
@@ -4126,28 +4126,37 @@ class Box_Element(UI_Element):
         if self.fill_color is not None:
             self.surface.fill(
                 self.fill_color,
-                self.bounding_coords.inflate(-1*self.PADDING, -1*self.PADDING)
+                self.bounding_coords.inflate(-1 * self.PADDING, -1 * self.PADDING)
                 )
 
 class Dynamic_Box_Element(Box_Element):
     "Element with a fill and border color that can change."
     
-    def __init__(self, screen, x1, y1, x2, y2, border_color, fill_color, border_hover_color, fill_hover_color):
+    def __init__(
+        self, screen,
+        x1, y1,
+        x2, y2,
+        border_color, fill_color,
+        border_hover_color, fill_hover_color
+        ):
         # Initialize parent variables
         super().__init__(self, screen, x1, y1, x2, y2, border_color, fill_color)
 
         # Initialize variables
         self.base_border_color = self.border_color
         self.base_fill_color = self.fill_color
-        self.border_highlight_color = border_highlight_color
-        self.fill_highlight_color = fill_highlight_color
+        self.border_highlight_color = border_hover_color
+        self.fill_highlight_color = fill_hover_color
         
-    def recolor(border_color, fill_color):
+    def recolor(self, border_color, fill_color) -> None:
         "Sets the border and fill color"
         self.surface.fill(border_color)
-        self.surface.fill(fill_color, self.bounding_coords.inflate(-1*self.PADDING, -1*self.PADDING)
+        self.surface.fill(
+            fill_color,
+            self.bounding_coords.inflate(-1 * self.PADDING, -1 * self.PADDING) #Deflate
+            )
 
-    def highlight(is_highlighted: bool):
+    def highlight(self, is_highlighted: bool) -> None:
         "Toggles the base/highlight border and fill colors."
         if is_highlighted: #    Changes to highlight color
             self.border_color = self.border_highlight_color            
@@ -4157,15 +4166,18 @@ class Dynamic_Box_Element(Box_Element):
             self.border_color = self.base_border_color
             self.fill_color = self.base_fill_color
             
-        recolor(self.border_color, self.fill_color)
+        self.recolor(self.border_color, self.fill_color)
         
 class Text_Element(UI_Element):
     # Creates a surface with text.
     # Add highlight function
-    # Create two types of init? One that takes coords as args, one that takes a surface to blit onto as an arg.
+    # Create two types of init? One that takes coords as args,
+    #   one that takes a surface to blit onto as an arg.
+    pass
     
 class Image_Element(UI_Element):
     #   Creates a surface with an image.
+    pass
 
 
 class Button(pygame.sprite.Sprite): #   Change to inherit from UI_Element
