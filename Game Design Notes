@@ -18,7 +18,7 @@ Passive:
 **Forest**: Cannot be moved through unless the unit has **flying**. Can also be destroyed by damage.
 **Permafrost**: Units that end their turn on **permafrost** terrain are **chilled** until the end of their next turn.
 **Icy**: Units that end their turn on **icy** terrain are **chilled** until the end of their next turn. Units that make a directional movement onto **icy** terrain will slide in the given direction until encountering non-**icy** terrain. This uses up all remaining movement range for that unit.
-**Holy Terrain:** (Just sounds cool like the FKA Twigs song title)
+
 
 
 **Unit Archetypes/Tribes**
@@ -198,7 +198,74 @@ Whirlpools, lava, quicksand?
 
 Spore tribe that implants mind control agents that take hold slowly.
 
-"Religious" Tribe that revolves around "praying" to a higher power (the player) to smite their enemies. Activating one of these units abilities would increase the "devotion" towards the player and would eventually allow the player to have expanded vision of the map, use special player abilities to damage/effect enemies, and heal allies/buff their stats. Whenever a praying unit dies this reduces the player devotion. Units can increase devotion by praying (simple activation), creating shrines (destructible objects), ritual sacrifice (low range ability execute on a low health unit)
+
+**Builder Faction:**
+Faction Bonus:
+3+: Reduce starting cooldown of all builders by X
+4+: Reduce starting cooldown of all builders by Y
+
+Wall Builder Unit:
+Passive: 
+Active: Creates an 1 by X tile wall that takes Y damage to destroy (damage destroys part or entire wall?).
+
+Turret Builder Unit:
+Passive: 
+Active: Build a turret that deals damage to all nearby enemies at the start/end of your/their/each turn.
+
+Engineer Unit:
+Passive: Movement increases with number of ally buildings placed.
+Active: "Repair": Low cooldown ability that heals an ally building by a small amount.
+
+Golem Builder Unit (wincon):
+Passive: 
+Active: 
+
+
+**"Religious" Tribe:**
+Revolves around "praying" to a higher power (the player) to smite their enemies. Activating one of these units abilities would increase the "devotion" towards the player and would eventually allow the player to have expanded vision of the map, use special player abilities to damage/effect enemies, and heal allies/buff their stats. Whenever a praying unit dies this reduces the player devotion. Units can increase devotion by praying (simple activation), creating shrines (destructible objects), ritual sacrifice (low range ability execute on a low health unit)
+
+1-Cost Units:
+Basic Monk Unit:
+Passive: Increases devotion from active ability based on nearby surroundings (shrines, priests, etc).
+Active: "Pray": Gives X devotion to player.
+
+Shrine Builder Unit:
+Passive: Improves nearby building stats scaling with devotion.
+Active: Place a shrine on target tile that passively increases devotion at the end of each turn. (Also provides a flat devotion bonus as long as it stays on the board?)
+
+Obelisk Builder Unit:
+Passive: 
+Active: Place an obelisk on target tile.
+
+Obelisk:
+Passive: Slows all enemies by X tiles within Y tiles. Both scale with devotion.
+Active: Shoots a damaging beam across two points within Y tile range.
+
+Slow Knight Unit:
+Passive: 
+Active: 
+
+"Holy Terrain" Unit: (Creates "blessed ground" somehow that buffed allied religious units.)
+Passive: Creates a 3x3 area around itself of "holy terrain" that lingers over tiles that it moves past.
+Active: 
+
+Paladin Unit (3-Cost):
+Passive: Basic attacks scale in damage with devotion.
+Active: Deals damage to an enemy, if that enemy dies gain X devotion.
+
+
+Devotion 0-100
+Devotion Level 1: 40
+Devotion Level 2: 60
+Devotion Level 3: 100
+
+Player (God) Powers:
+Omnicience: Full view of board (no fog)
+Heal ally unit
+Smite: Destroy Enemy Unit
+
+Omnipotence: 
+
 
 
 “Silencer” (dota 2) aggro tribe based around delaying opponent abilities.
@@ -220,6 +287,17 @@ Active: throws emp grenade to target location reducing all enemy cooldowns in th
 5 cost unit has long cool down ability that grants an extra turn
 
 3 cost unit can reset players turn to the start (basically used to glean information/take back bad plays)
+
+
+**Control Archetype Units:**
+"Removal" Unit:
+Ability: Destroy a 1-cost unit, low starting cooldown, long recharge cooldown (possibly increasing in strenth "destroy a 2-cost unit" etc...)
+
+**Midrange Archetype Units:**
+Teleporting Unit:
+
+**Aggro Archetype Units:**
+Unit whose ability can be used for both forward momentum and also damage.
 
 
 
@@ -370,6 +448,15 @@ Securing a neutral objective could provide either targeted or random vision of e
 Gives the player a certain amount of production points that allows them to either buy or resurrect a unit with that value.
 
 Give both teams full vision of their side of the base at all times?
+
+Reduce ally units cooldowns!
+
+Movement increased for all ally units.
+
+
+**Kiting prevention and melee unit sticking power:**
+Base idea: Any movement input while next to an enemy costs 1 additional tile.
+Additional ideas: Opportunity attacks.
 
 
 
