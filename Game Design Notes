@@ -91,14 +91,14 @@ Tribal Bonuses:
 4+: When two or more *Ice Walker* units hit the same enemy unit with basic attacks, that enemy unit is **chilled**.
 
 
-**Blood Warriors:**
+**Blood Warriors:** (Overcharing robots with electricity theme?)
 Abilities:
 
 AoE that deals 1 damage to all units in range. Enraged bonus deals triple damage to units with full health.
 
 Line shot that pierces and deals additional damage after each unit hit. Enraged bonus increases range and damage.
 
-"Blood Lightning" Deals damage to target damaged unit within range. Repeat for a total of 3 times. Enraged bonus increases the total of jumps to 5.
+"Blood Lightning" Deals damage to target damaged unit within range. Repeat on an additional unit for a total of 3 times. Enraged bonus increases the total of jumps to 5.
 
 Passives:
 
@@ -110,31 +110,58 @@ Basic attack deals bonus damage if this unit has been damaged this turn.
 
 Basic attack deals bonus damage equal to the amount of damage this unit has taken taken this turn.
 
+Whirling Wittaker: (1-Cost)
+Passive: Enraged bonus causes attacks and abilities to deal double damage to units with full health.
+Active: Deal 1 damage to all nearby units in range. 
+
+Cruel Taskmaster: (1-Cost)
+Passive: 
+Active: Deal 1 damage to a unit, reduce its ability cooldown by 1.
+
+Whiplord: (3-Cost)
+Passive: This unit may attack allied units.
+Active: Deals damage to target enemy equal to the number of damaged ally units.
+
+Meatbag Giant: (2-Cost)
+Passive: At the end your turn, if another ally has taken damage, restore 1 health to this unit.
+Active: Throw target ally unit in melee range at target enemy cutting each units health in half (round down for ally round up for enemy).
+
 Tribal Bonuses:
 
 "Pain Artistry"
 
-2+: Allied units may target and attack other allied units.
+3+: Whenever a unit would take damage on your turn, reduce that damage to 1.
 
-4+: After taking damage from an allied unit, restore 1 health.
+4+: After taking damage from an allied unit for the first time each turn, restore 1 health at the end of the turn.
 
 
-**Ninja Tribe:**
+**Ninja Faction:**
 
-Decoy Ninja unit: ability that puts down a statue that appears as unit in light fog
+Disguised/Changeling Ninja: (1-Cost)
+Passive: After being attacked by an enemy, this unit negates the damage launches a counterattack dealing damage. (teleports to enemy? negates damage?)
+Active: Disguises self as a copy of allied unit, decoy, or tree.
 
-Passive: upon being dealt lethal damage, if a decoy is set, swap places with the decoy and set units health to 1
+Smoke Bomb Ninja: (1-Cost)
+Passive: After attacking an enemy unit in a straight line, move 1 tile in the opposite direction.
+Active: Throws a smoke bomb on target tile creating an area of light fog reducing enemy vision to 1 clear tile.
 
-Disguised/changeling ninja: 
+Decoy Ninja Unit: (2-Cost)
+Passive: Upon being dealt lethal damage, if a decoy is set within X tiles, swap places with the decoy and set units health to 1.
+Active: Places down a statue that appears as unit in light fog.
 
-Active: disguises self into a copy of allied unit/decoy
+Oni: (3-Cost)
+Passive: Enemies always have vision of this unit.
+Active: **Taunts** all nearby enemies within range, forcing them to basic attack this unit next turn (cannot move or use abilities).
 
-Passive: after being revealed by an enemy (attacked), this unit launches a counterattack (deals damage and teleports to enemy)
+Ninja Master: (3-Cost)
+Passive: Basic attacks deal bonus damage to enemies in melee range.
+Active: Enters true stealth for X turns. Cannot be revealed unless directly next to an enemy unit. Attacking breaks stealth.
 
-Stealth ninja unit: passive starts in stealth and is revealed after attacking or using an ability. Stealth resets after killing an enemy unit.
 
-Active/passive deals bonus damage to unit in melee range.
-
+Faction Bonus:
+3+: Increase enemy light fog vision by 1 tile.
+4+: Ninja units get 1 bonus movement while in light fog.
+5+: Ninja units basic attacks deal 1 additional damage when first attacking after being revealed this turn.
 
 **Crazy experimental unit**:
 
@@ -212,6 +239,10 @@ Turret Builder Unit:
 Passive: 
 Active: Build a turret that deals damage to all nearby enemies at the start/end of your/their/each turn.
 
+Haste Builder Unit:
+Passive:
+Active: Creates a structure that lowers nearby ally cooldowns by 1 every 3 turns.
+
 Engineer Unit:
 Passive: Movement increases with number of ally buildings placed.
 Active: "Repair": Low cooldown ability that heals an ally building by a small amount.
@@ -255,16 +286,18 @@ Active: Deals damage to an enemy, if that enemy dies gain X devotion.
 
 
 Devotion 0-100
-Devotion Level 1: 40
-Devotion Level 2: 60
-Devotion Level 3: 100
+Devotion Level 1: 25
+Devotion Level 2: 50
+Devotion Level 3: 75
+Devotion Level 4: 100
 
 Player (God) Powers:
-Omnicience: Full view of board (no fog)
-Heal ally unit
+Omniscience: Full view of board (no fog)
+Terraform: 
+Heal ally unit: Scales with devotion level?
 Smite: Destroy Enemy Unit
 
-Omnipotence: 
+Omnipotence: ?
 
 
 
@@ -272,7 +305,7 @@ Omnipotence:
 
 Midrange 2-3ish cost unit:
 
-Passive: basic attacks reduce enemy cooldown by 1
+Passive: basic attacks increase enemy cooldown by 1
 
 Active: throws emp grenade to target location reducing all enemy cooldowns in the aoe
 
@@ -293,8 +326,14 @@ Active: throws emp grenade to target location reducing all enemy cooldowns in th
 "Removal" Unit:
 Ability: Destroy a 1-cost unit, low starting cooldown, long recharge cooldown (possibly increasing in strenth "destroy a 2-cost unit" etc...)
 
+Trick room/speed changing ability?
+
 **Midrange Archetype Units:**
 Teleporting Unit:
+
+"Ekko" Unit:
+Passive: At the end of each turn, if this unit basic attacked, teleport it to it's starting location.
+Active: 
 
 **Aggro Archetype Units:**
 Unit whose ability can be used for both forward momentum and also damage.
