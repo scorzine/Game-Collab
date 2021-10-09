@@ -1,3 +1,11 @@
+**Damage Calculation:**
+By default, all non-integer damage values will work in favor of the user (round down for ally round up for enemy).
+
+Possibly have two main damage categories:
+•Attack Damage* (Basic Attack Damage)
+*Ability Damage* (The NUMBER that is displayed in the ability description)
+Could have it be like hearthstone spell damage, where an ability that says "Deal 1 damage three times" scales differently with *Ability Damage* than "Deal 3 damage"
+
 **Unit Definitions:**
 Tribe Tags:
 Health:
@@ -122,17 +130,17 @@ Whiplord: (3-Cost)
 Passive: This unit may attack allied units.
 Active: Deals damage to target enemy equal to the number of damaged ally units.
 
-Meatbag Giant: (2-Cost)
+Meatbag Giant: (3-Cost)
 Passive: At the end your turn, if another ally has taken damage, restore 1 health to this unit.
-Active: Throw target ally unit in melee range at target enemy cutting each units health in half (round down for ally round up for enemy).
+Active: Throw target ally unit in melee range at target enemy cutting each units current health in half.
+*Enraged Bonus*: Increased active range. 
 
 Tribal Bonuses:
 
 "Pain Artistry"
-
-3+: Whenever a unit would take damage on your turn, reduce that damage to 1.
-
-4+: After taking damage from an allied unit for the first time each turn, restore 1 health at the end of the turn.
+3+: ALL units (ally and enemy) get +1 basic attack damage.
+4+: Only ally units get +1 basic attack damage.
+5+: Whenever a unit would take damage on your turn, reduce that damage to 1.
 
 
 **Ninja Faction:**
@@ -299,15 +307,24 @@ Smite: Destroy Enemy Unit
 
 Omnipotence: ?
 
+MOBA Champions Recreated:
 
-
-“Silencer” (dota 2) aggro tribe based around delaying opponent abilities.
-
-Midrange 2-3ish cost unit:
-
+“Silencer” (dota 2) aggro tribe based around delaying opponent abilities. Midrange 2-3ish cost unit:
 Passive: basic attacks increase enemy cooldown by 1
-
 Active: throws emp grenade to target location reducing all enemy cooldowns in the aoe
+
+"Ekko" Unit:
+Passive: At the end of each turn, if this unit basic attacked, teleport it to it's starting location.
+Active: 
+
+"Miss Fortune" Unit:
+Passive: The first attack against each unique enemy sends a parting shot ricocheting behind the original target dealing half damage to one enemy.
+Active: 
+
+"Caitlyn" Unit:
+Passive: Gains bonus basic attack range against trapped enemies.
+Active: Place an invisible snare trap on a single tile.
+*Snare Trap*: Dissapears after 5 turns. Upon an enemy trigger, reveals and immobilizes that enemy unit for 2 turns (end of current turn + next turn). 
 
 
 **Bottom up tribe themes**:
@@ -328,12 +345,11 @@ Ability: Destroy a 1-cost unit, low starting cooldown, long recharge cooldown (p
 
 Trick room/speed changing ability?
 
+Massive Teleportation ability that teleports all enemy units globally to a specific aoe spot.
+
 **Midrange Archetype Units:**
 Teleporting Unit:
 
-"Ekko" Unit:
-Passive: At the end of each turn, if this unit basic attacked, teleport it to it's starting location.
-Active: 
 
 **Aggro Archetype Units:**
 Unit whose ability can be used for both forward momentum and also damage.
