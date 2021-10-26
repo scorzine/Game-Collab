@@ -102,10 +102,6 @@ Tribal Bonuses:
 **Blood Warriors:** (Overcharing robots with electricity theme?)
 Abilities:
 
-AoE that deals 1 damage to all units in range. Enraged bonus deals triple damage to units with full health.
-
-Line shot that pierces and deals additional damage after each unit hit. Enraged bonus increases range and damage.
-
 "Blood Lightning" Deals damage to target damaged unit within range. Repeat on an additional unit for a total of 3 times. Enraged bonus increases the total of jumps to 5.
 
 Passives:
@@ -118,22 +114,29 @@ Basic attack deals bonus damage if this unit has been damaged this turn.
 
 Basic attack deals bonus damage equal to the amount of damage this unit has taken taken this turn.
 
+Spearpiercer: (2-Cost)
+Passive: *Enraged Bonus:* Active gains additional range.
+Active: Line skillshot that pierces through units and gains additional range and/or damage after passing through the first unit.
+
 Whirling Wittaker: (1-Cost)
-Passive: Enraged bonus causes attacks and abilities to deal double damage to units with full health.
+Passive: *Enraged Bonus:* causes attacks and abilities to deal double damage to units with full health.
 Active: Deal 1 damage to all nearby units in range. 
 
 Cruel Taskmaster: (1-Cost)
-Passive: 
-Active: Deal 1 damage to a unit, reduce its ability cooldown by 1.
+Passive: *Enraged Bonus:* Basic attacks reduce this unit's ability cooldown by 1.
+Active: Deal 1 damage to another unit, reduce its ability cooldown by 1.
 
 Whiplord: (3-Cost)
-Passive: This unit may attack allied units.
+Passive: This unit may attack allied units. (Make this enraged bonus only? Would be a super hard nerf but maybe it's too consistent otherwise.)
 Active: Deals damage to target enemy equal to the number of damaged ally units.
 
 Meatbag Giant: (3-Cost)
-Passive: At the end your turn, if another ally has taken damage, restore 1 health to this unit.
+Passive: *Enraged Bonus:* Increased active range. At the end your turn, if another ally has taken damage, restore 1 health to this unit.
 Active: Throw target ally unit in melee range at target enemy cutting each units current health in half.
-*Enraged Bonus*: Increased active range. 
+
+Global AOE Unit: (3-Cost)
+Passive: *Enraged Bonus:* Reduce this unit's ability cooldown by 1 at end of turn.
+Active: Deal 1 damage to ALL other units globally.
 
 Tribal Bonuses:
 
@@ -233,6 +236,19 @@ Whirlpools, lava, quicksand?
 
 Spore tribe that implants mind control agents that take hold slowly.
 
+**Sacrifice Faction:**
+"Stat Devourer":
+Passive: 
+Active: Destroy an allied unit and restore health equal to its current health.
+
+**Infestation Faction:**
+Tribe based around effects that spawn small statted very basic "sporelings" with no inherent ability, but can move and attack.
+
+
+"Spore Launcher":
+Passive:  
+Active: Target non-sporeling unit becomes infested with spores, creating a sporeling upon that unit's death.
+
 
 **Builder Faction:**
 Faction Bonus:
@@ -260,7 +276,7 @@ Passive:
 Active: 
 
 
-**"Religious" Tribe:**
+**"Religious" Faction:**
 Revolves around "praying" to a higher power (the player) to smite their enemies. Activating one of these units abilities would increase the "devotion" towards the player and would eventually allow the player to have expanded vision of the map, use special player abilities to damage/effect enemies, and heal allies/buff their stats. Whenever a praying unit dies this reduces the player devotion. Units can increase devotion by praying (simple activation), creating shrines (destructible objects), ritual sacrifice (low range ability execute on a low health unit)
 
 1-Cost Units:
@@ -307,6 +323,11 @@ Smite: Destroy Enemy Unit
 
 Omnipotence: ?
 
+Pokemon Recreated:
+Protect Unit:
+Passive:
+Active: "Protect": Shields this unit from all incoming damage and CC during the opponenets next turn.
+
 MOBA Champions Recreated:
 
 “Silencer” (dota 2) aggro tribe based around delaying opponent abilities. Midrange 2-3ish cost unit:
@@ -326,10 +347,53 @@ Passive: Gains bonus basic attack range against trapped enemies.
 Active: Place an invisible snare trap on a single tile.
 *Snare Trap*: Dissapears after 5 turns. Upon an enemy trigger, reveals and immobilizes that enemy unit for 2 turns (end of current turn + next turn). 
 
+"Rek'Sai" Unit:
+Passive: 
+Active: Burrows through the ground to target tile, leaving an entrance/exit tile that can be reused a single time before collapsing the tunnel.
+(Tunnel can be reused by ending turn while standing on hole? Might be awkward since presumably the first turn after putting the tunnel down would end on that tile.)
+
+"Yuumi" Unit:
+Passive: Can be deployed on the same tile as another allied unit and "equips" on top of it.
+Active: 
+
 
 **Bottom up tribe themes**:
 
 "Storm" Mechanic from mtg tribe where unit do more damage scaling with the number of units that used their abilities or attacked before them
+
+**Brush/Tall Grass Synergy Units:**
+(Tall Grass is team specific, and only provides the stealth to ally team units. Could start with spawning ally/enemy tall grass on each side of the map?)
+
+"Rengvirn" Unit: (Melee/Very Low Range Unit)
+Passive: While standing in Tall Grass, basic attack range is increased by 3, and attacking an enemy will dash directly next to the target.
+Active: Creates a sprout of Tall Grass on target tile(s) that lasts for X turns.
+
+"Bushfire" Unit: 
+Passive: Some way of placing bushes down
+Active: Ignites nearby Brush, spreading to all connected Brush and Forest tiles burning them down and dealing AOE damage to all nearby enemies.
+
+
+**Shadow Realm Faction:**
+Based around a "shadow realm" mechanic that basically is a mirrored version of the main map that only certain units have access to/interact with.
+Possibly make it so that units in the "shadow realm" can still be attacked somehow. Something in the overworld can be attacked and then when killed it pulls the unit out from the shadow realm. 
+
+
+Duelist unit:
+Passive: gain +1 basic attack range while in shadow realm
+Active: transport an enemy unit to the shadow realm for X turns. This unit being destroyed causes this effect to end immediately.
+
+Boss unit:
+Passive: 
+Active: switch ALL units to and from the shadow realm for X turns.
+
+Gravekeeper: 
+Passive: whenever an allied unit is destroyed, create a 1 hp 1 atk spirit unit in the shadow realm.
+Active: summon all spirits from the shadow realm to the overworld
+
+Shady transporter:
+Passive: gain +2 movement while in the shadow realm
+Active: enter the shadow realm for X turns or until recast. Upon reentering the overworld, deal small aoe damage to all enemies
+
 
 
 **Time magic tribe**:
@@ -354,7 +418,9 @@ Teleporting Unit:
 **Aggro Archetype Units:**
 Unit whose ability can be used for both forward momentum and also damage.
 
-
+Shadow Assassin:
+Passive: 
+Active: Pull target unit into the shadow realm alongside itself. (Destroys both units.)
 
 **Generic Tribal Mechanics**:
 
@@ -365,6 +431,18 @@ Tribal bonus that all basic attacks from allied units heal for a % of their dama
 Tribal bonus that causes enemies to explode on death dealing damage equal to their maximum health to nearby enemies.
 
 Tribal bonus that reduces the starting cooldown of allied units abilities.
+
+**Abilities that "Break the Rules":**
+Passive/class of unit that allows for multiple basic attacks on the same turn (with lower attack damage of course).
+
+Assembly line/factory robot faction that "recycles" dead units into production points to deploy from the sideboard.
+**Recycling Robot Faction:**
+
+
+Tribal Bonus:
+3+: 
+4+: 
+5+: 
 
 
 **Generic Unit Mechanics**:
@@ -472,6 +550,10 @@ Maybe overall player ability to "stasis" a unit and make it invulnerable to dama
 
 Stealth/Camouflage ability with a number next to it indicating how strong it is correlating with the radius it can be unseen from in proximity to an enemy unit. ie "Tier 3 Stealth: cannot be seen unless within 3 tiles of an enemy"
 
+"Nearsighted" ability that reduces vision either like Graves Smokescreen or Nocturne ult.
+
+Ability that "Marks an Enemy for Death", that whenever that enemy gets reduced to X health or below, this unit executes it and teleports to tile it was previously on.
+
 **Assassin:** after this unit deals lethal damage to an enemy, this unit may move again/this unit may move a set X tiles.
 
 **Tracking Shot:** Low cool down low damage move that allows the unit to move an additional tile in the direction the projectile was fired if it connects with an enemy.
@@ -508,11 +590,19 @@ Reduce ally units cooldowns!
 
 Movement increased for all ally units.
 
+Depolay an additional unit from sideboard equal to X production points.
+
 
 **Kiting prevention and melee unit sticking power:**
 Base idea: Any movement input while next to an enemy costs 1 additional tile.
 Additional ideas: Opportunity attacks.
 
+**Sideboard:**
+Allow for a 5 point sideboard?
+Opportunities to swap units around:
+Start the game with all 15 points worth of units on the lefthand side during deployment, and then can place up to 10 points worth. (This feels really good!!!)
+Could occur after seeing what Faction(s) your opponent has locked in.
+Could occur after each game of a Best of X match.
 
 
 **Levels to the stealth that is synced with the fog:**
