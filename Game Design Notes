@@ -414,6 +414,10 @@ Massive Teleportation ability that teleports all enemy units globally to a speci
 **Midrange Archetype Units:**
 Teleporting Unit:
 
+"Tile Adjuster":
+Passive:
+Active: Move another unit to an adjacent tiles. (1 Turn Cooldown)
+
 
 **Aggro Archetype Units:**
 Unit whose ability can be used for both forward momentum and also damage.
@@ -596,6 +600,14 @@ Depolay an additional unit from sideboard equal to X production points.
 **Kiting prevention and melee unit sticking power:**
 Base idea: Any movement input while next to an enemy costs 1 additional tile.
 Additional ideas: Opportunity attacks.
+
+**Overall Unit "Class/Perks" Ideas:**
+Maybe seperate units into a set number of defined groups that each get their own unique passive/mechanic? Could even let players customize the perk of the class to choose between options.
+Melees "Juggernauts": (Opportunity Attacks/Reduced Enemy Movement) when attempting to move from an adjacent tile.
+Midrange: 
+Long Range: (When attacking a unit from maximum range, deal bonus damage/This unit may attack twice per turn, with the second attack dealing reduced damage.)
+
+On second thought, its hard to come up with more bonuses for the non-melee classes so maybe it would be best to just simple let the melee perk stand on its own as a buff to all melee units.
 
 **Sideboard:**
 Allow for a 5 point sideboard?
