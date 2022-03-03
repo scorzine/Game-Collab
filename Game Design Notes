@@ -2,8 +2,8 @@
 By default, all non-integer damage values will work in favor of the user (round down for ally round up for enemy).
 
 Possibly have two main damage categories:
-•Attack Damage* (Basic Attack Damage)
-*Ability Damage* (The NUMBER that is displayed in the ability description)
+*Attack Damage, Basic Attack Damage, Attack Power* (Basic Attack Damage)
+*Ability Damage, Ability Power, Spell Damage, Spell Power* (The NUMBER that is displayed in the ability description)
 Could have it be like hearthstone spell damage, where an ability that says "Deal 1 damage three times" scales differently with *Ability Damage* than "Deal 3 damage"
 
 **Unit Definitions:**
@@ -14,19 +14,33 @@ Basic Attack Range:
 Basic Attack Damage:
 Ability Cooldown:
 Ability Starting Cooldown:
-Passive:
+Passive (rename passive to "innate" or something maybe?) :
 
+**Ability Targeting Categories:** (Abilities' should have a categorical system that has some kind of displayed tag on the ability description. EG some category of abilities can have their RANGE buffed by other effects. Could make the destinction between abilities that deal damage vs other effects, this decides the nomanclature for Ability Power vs Ability Damage)
+"Cardinal"
+"Intercardinal"
+"AoE"
+"Line Shot"
+"Targeted"
 
 **Terrain Types:**
 
 **Grass**: 
 **Tall Grass:** Can only be seen by units that are directly adjacent to the current tile.
-**water**: Reduces movement by one tile.
+**Water**: Reduces movement by one tile.
 **Mountain**: Cannot be moved through unless the unit has **flying**.
 **Forest**: Cannot be moved through unless the unit has **flying**. Can also be destroyed by damage.
 **Permafrost**: Units that end their turn on **permafrost** terrain are **chilled** until the end of their next turn.
-**Icy**: Units that end their turn on **icy** terrain are **chilled** until the end of their next turn. Units that make a directional movement onto **icy** terrain will slide in the given direction until encountering non-**icy** terrain. This uses up all remaining movement range for that unit.
+**Ice**: Units that end their turn on **Ice** terrain are **Chilled** until the end of their next turn. Units that make a directional movement onto **Ice** terrain will slide in the given direction until encountering non-**Ice** terrain. This uses up all remaining movement range for that unit.
 
+**Unit Description Template**
+"Unit Name" *Tribe*: (Team-Cost)
+HP: 1; AD: 2; Range: 3; Movement: 4
+Passive: 
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: 
+Notes:
 
 
 **Unit Archetypes/Tribes**
@@ -60,16 +74,26 @@ Deals damage to all currently **chained** enemies.
 
 Basic attacks deal bonus damage to **chained** enemies.
 
+"Chain Reactor" (like a big furnace monster eating chains): (2-Cost)
+Passive: This unit can be targeted by allied *chain* units abilities as though it was an enemy. Whenever this unit becomes *Chained* to an ally unit, give that unit and/or this unit a buff.
+Ability: Pulls in and consumes all connected chains to this unit to grant X bonus movement and Y bonus attack damage unit end of turn.
+
+"Spark Shocker": (2-Cost) (Not a *Chain* unit)
+Passive: Attacking an enemy marks them with a spark for the next three turns.
+Active: Sends a bolt of electricity to target spark marked enemy within Y range dealing X damage to that enemy and all units the bolt passed through. If there is another spark marked enemy within Y range the bolt will continue to travel and deal damage to that enemy. The bolt can also be extended over conductive surfaces that enemy is touching (standing in water tiles or *Chains* connected to another unit.
+
+
 Tribal Bonuses:
 
-1+: *Chain Gang* units' have increased movement towards chained enemy units.
+1+: Allied units have increased movement towards chained enemy units.
 
 3+: *Chain Gang* units' abilities have increased range.
 
-*Ice Walkers***:**
+
+
+**Ice Walkers:**
 
 **Chilled** units have their movement range reduced and are **Frozen** if they would be **chilled** again.
-
 **Frozen** units are completely immobile, cannot basic attack, and cannot use their abilities.
 
 Abilities:
@@ -78,25 +102,53 @@ Abilities:
 
 Line shot that **Unfreezes** target single enemy and deals execute damage.
 
-Converts adjacent **water** terrain tile and all connected **water** terrain tiles to **icy** terrain.
+Converts adjacent **water** terrain tile and all connected **water** terrain tiles to **Ice** terrain.
 
 Line shot that **chills** target single enemy unit.
 
-AoE that converts all land terrain to **permafrost** and all water terrain to **icy**.
+AoE that converts all land terrain to **permafrost** and all water terrain to **Ice**.
 
 Passives:
 
 "Vengeful Frost" When this unit takes damage that reduces its health below 50%, freeze the enemy that dealt that damage. (OR) When this unit takes damage over a certain amount, freeze the enemy that dealt the damage.
 
-"Ice Skater" When this unit slides off of **icy** terrain they may continue to move as though they had not stepped on **icy** terrain.
+"Ice Skater" When this unit slides off of **Ice** terrain they may continue to move as though they had not stepped on **Ice** terrain.
+
+Ice Unit: (1-Cost)
+Passive: Attacking a **Chilled** or **Frozen** enemy deals 1 additional damage.
+Active: Deal 1 damage to target enemy and **Chill** it.
+
+Ice Skater: (1-Cost)
+Passive: This unit can move indefinitately on **Ice** terrain and is not affected by the directional sliding. Stepping off of **Ice** terrain makes this unit's next attack deal 1 extra damage.
+Active: Turns target tile to **Permafrost**. If that tile was a **Water** tile, turn it and all connected **Water** tiles to **Ice**.
+
+River Binder: (1-Cost) (Not an **Ice Walker**)
+Passive: This unit doesn't lose movement from **Water** tiles.
+Active: Creates an endless river in a line that creates **Water** tiles in its wake. Stops at the first non-**Grass** tile hit.
+
+Ice Shooter: (2-Cost)
+Passive: At the start of your turn, this unit gains 1 additional movement for each unit **Frozen** during your last turn.
+Active: Fires a line skillshot that **Freezes** the first unit hit and **Chills** any beyond it in a cone. (Graves ult)
+
+Ice Breaker: (2-Cost)
+Passive "Snowy Aura": At the end of your turn, **Chill** all enemy units within X range.
+Active "Defrost": **Unfreeze** all units on the field dealing X damage to them.
+
+Ice Behemoth: (3-Cost)
+Passive: Enemies that attack this unit are **Chilled** and have their movement reduced by an additional 1.
+Active: When activated, **Chills** all enemies within X range. At the end of your next turn, **Freeze** all enemies with X range. At the end of your turn after that, deal 10 damage to all enemies within X range.
+
+Betrayer of Ice: (3-Cost) (Not an **Ice Walker**)
+Passive: At the end of your turn, any **Chilled** allies within X range are **Unchilled?** and heal for 1 health.
+Active: Spews magma in a line shot in any cardinal direction dealing X damage to all units hit, **Unfreezing** them and all other units within 1 tile of the magma.
 
 Tribal Bonuses:
 
-1+: *Ice Walker* units are unaffected by cooling effects.
-
-2+: *Ice Walker* units are unaffected by cooling and freezing effects.
-
-4+: When two or more *Ice Walker* units hit the same enemy unit with basic attacks, that enemy unit is **chilled**.
+1+: Allied units are no longer **Chilled** by ending their turn on an **Ice** or **Permafrost** tile.
+2+: If an allied unit would be **Frozen** it is **Chilled** instead.
+3+: Whenever an **Ice Walker** attacks a **Chilled** unit, it becomes **Frozen**.
+4+: When two or more *Ice Walker* units hit the same enemy unit with basic attacks, that enemy unit is **Chilled**.
+5+: **Ice Walkers** that attack enemy units deal an additional 1 damage to **chilled** enemies and 2 damage to **Frozen** enemies.
 
 
 **Blood Warriors:** (Overcharing robots with electricity theme?)
@@ -126,17 +178,25 @@ Cruel Taskmaster: (1-Cost)
 Passive: *Enraged Bonus:* Basic attacks reduce this unit's ability cooldown by 1.
 Active: Deal 1 damage to another unit, reduce its ability cooldown by 1.
 
+Beserker Unit: (2-Cost)
+Passive: *Enraged Bonus:* Basic attacks deal an additional 1 damage.
+Active: Enters and enraged state, becoming immune to all enemy damage. Deal 1 cummulative damage to self at the start of your turn. Attacking an enemy unit with a basic attack heals this unit for 1 health.
+
+Global AOE Unit: (2-Cost)
+Passive: *Enraged Bonus:* Reduce this unit's ability cooldown by 1 at end of turn.
+Active: Deal 1 damage to ALL other units globally.
+
 Whiplord: (3-Cost)
 Passive: This unit may attack allied units. (Make this enraged bonus only? Would be a super hard nerf but maybe it's too consistent otherwise.)
 Active: Deals damage to target enemy equal to the number of damaged ally units.
 
 Meatbag Giant: (3-Cost)
-Passive: *Enraged Bonus:* Increased active range. At the end your turn, if another ally has taken damage, restore 1 health to this unit.
+Passive: At the end your turn, if another ally has taken damage, restore 1 health to this unit. *Enraged Bonus:* Increased active range.
 Active: Throw target ally unit in melee range at target enemy cutting each units current health in half.
 
-Global AOE Unit: (3-Cost)
-Passive: *Enraged Bonus:* Reduce this unit's ability cooldown by 1 at end of turn.
-Active: Deal 1 damage to ALL other units globally.
+Decorum Disrupter: (3-Cost)
+Passive: At the start of your turn, this unit basic attacks the nearest ally or enemy unit (this doesn't use up the basic attack for the turn).
+Active "Mass Dissension": At the start of your opponent's next turn, each unit on the field attacks the nearest unit.
 
 Tribal Bonuses:
 
@@ -160,6 +220,10 @@ Decoy Ninja Unit: (2-Cost)
 Passive: Upon being dealt lethal damage, if a decoy is set within X tiles, swap places with the decoy and set units health to 1.
 Active: Places down a statue that appears as unit in light fog.
 
+Ninja Supplanter: (2-Cost)
+Passive: After taking damage from a source, Ninja Supplanter becomes immune to all damage for the rest of the turn.
+Active: The next time an ally would take damage during your opponenets turn, swap places with it and take the damage instead. 
+
 Oni: (3-Cost)
 Passive: Enemies always have vision of this unit.
 Active: **Taunts** all nearby enemies within range, forcing them to basic attack this unit next turn (cannot move or use abilities).
@@ -173,6 +237,40 @@ Faction Bonus:
 3+: Increase enemy light fog vision by 1 tile.
 4+: Ninja units get 1 bonus movement while in light fog.
 5+: Ninja units basic attacks deal 1 additional damage when first attacking after being revealed this turn.
+
+
+**Lumin** (Aesthetically looks very "holy" with beams and walls of bright white light. Maybe in this world light is a resources and manifestation of energy/money.)
+
+"Lightmine Eruptor": (1-Cost)
+HP: 8; AD: 2; Range: 3; Movement: 3
+Passive: Whenever a **Lumin** effect is triggered, gain 2 AD until the end of your turn.
+Ability Tags: Targeted, Delayed
+Ability Cooldown: 3
+Ability Description: Plant a Lightmine on target *keyword for flat tile aka no mountains (or forests?)* tile. Enemy projectiles that pass over that tile trigger the trap, nullifying their effects and damage. (After being triggered, the effect lingers until end of turn?)
+
+"Lightshield Defender": (2-Cost)
+HP: 8; AD: 2; Range: 3; Movement: 3
+Passive: **Lumin** effects on tiles adjacent to this unit have their effects increased.
+Ability Tags: Targeted, Area
+Ability Cooldown: 3
+Ability Description: Places a light barrier across a line of 5 tiles that lasts for 3 turns. Reduces the damage of all incoming enemy projectiles and reduces the movement of all enemy units that pass through it.
+
+"Lumin Crusader": (3-Cost)
+HP: 12; AD: 2; Range: 1; Movement: 3
+Passive: Attacking an enemy marks them with *Glare*. Attacking an enemy already marked with *Glare* consumes the mark delaying that unit's ability by 1 and granting this unit another basic attack this turn.
+Ability Tags: AoE, Lineshot
+Ability Cooldown: 3 (Starting Cooldown: 0)
+Ability Description: Strikes forward in an AoE line shot 2 tiles long dealing 2 damage and marking any enemies with a stack of *Glare*. Striking an enemy already marked with *Glare* consumes the mark delaying that unit's ability by 1 and reducing this ability's cooldown by 1.
+Notes: (Possible infinite combo if the number of enemies hit with the ability is equal to or greater than the ability cooldown. Not saying this is necessarily bad since the positioning is difficult and requires some amount of setup. Aka increasing AoE to 3, decreasing cooldown to 2, some other way to mark enemies.)
+
+"Lumin Protecter": (1-Cost)
+HP: 8; AD: 1; Range: 3; Movement: 3
+Passive: Whenever a *Lumin* effect is placed on a unit or tile, allies within X range of that unit or tile gain 1 bonus movement (Once per turn per unit).
+Ability Tags: Targeted
+Ability Cooldown: 2
+Ability Description: Grants target ally a luminous barrier blocking the next instance of damage that unit would take until your next turn.
+Notes: (Might be difficult to determine whether or not a unit is moving in that direction or not.)
+
 
 **Crazy experimental unit**:
 
@@ -359,6 +457,21 @@ Active:
 
 **Bottom up tribe themes**:
 
+"Going Wide" Synergy Units:
+Squad Leader: (2-Cost)
+Passive: Allied units within X range gain 1 attack range.
+Active: Target enemy within X range becomes marked. Landing three attacks from allies on that enemy (in the same turn?) deals 3 bonus damage.
+
+"Junkbot/Zombie" Token Unit Reborn Mechanic:
+Junkbot Manufacturer: (2-Cost)
+Passive: Whenever an non-token ally is destroyed, mark that tile with a "scrapile".
+Active: Create a "junkbot" token unit in place of target "scrapile", with stats scaled to that "scrapiles" Cost.
+
+Skilled Necromancer: (2-Cost)
+Passive: 
+Active: Destroy any number of target allies. Deploy a copy of a unit from your sideboard with cost no greater to the number of destroyed units minus 1.
+
+
 "Storm" Mechanic from mtg tribe where unit do more damage scaling with the number of units that used their abilities or attacked before them
 
 **Brush/Tall Grass Synergy Units:**
@@ -405,7 +518,7 @@ Active: enter the shadow realm for X turns or until recast. Upon reentering the 
 
 **Control Archetype Units:**
 "Removal" Unit:
-Ability: Destroy a 1-cost unit, low starting cooldown, long recharge cooldown (possibly increasing in strenth "destroy a 2-cost unit" etc...)
+Ability: Destroy a 1-cost unit, low starting cooldown, long recharge cooldown (possibly increasing in strength "destroy a 2-cost unit" etc...)
 
 Trick room/speed changing ability?
 
@@ -568,6 +681,10 @@ Ability that "Marks an Enemy for Death", that whenever that enemy gets reduced t
 
 
 **Large Game Balance Changes/Decisions:**
+HEX grid game board??? Inspired by the hexagon youtube video, and I do agree that with the square grid, diagonal based movement and range targeting feels awkward...
+Question is do you have the paralell sides of the hexagon face vertically or horizontally along the board. Up/Down edges makes moving directly across the board easier, and also gives more options when moving forward at an angle for a flank. Aesthetic bonus with this orientation is that the front and back of the map are defined by a clean flat edge along both sides.
+Downsides: Difficult to move with standard arrow key controls. Could get around this by having left/right (or up/down depending on orientation) arrow keys toggle between the two possible tiles and then requiring a button press to lock in the movement command. Another way to try keyboard controls would be to use "QWEASD", where WS are still up down, and then QE are up left and up right respectively, and AD are down left and down right respectively. Another option is to use arrow keys (or WASD theoretically), and just have left/right rotate the unit and then up/down locks in the movement forward or backwards based on where that unit is facing.
+
 Needs some kind of failsafe to prevent turtling via constantly running away (eg. one flying unit zipping around the map super fast unable to be caught).
 
 To prevent insurmountable kiting and poking in and out of fog of war, possibly restrict movement to only before using attacks and abilities.  Possibly use 3 different color indicators around a unit to display what actions are left. Ie blue aura for movement, yellow for basic attack, red for special attack. By going back to the set move usage of Move → basic attack → ability, the clarity of what the unit is currently capable of would be greatly improved. For some reason mechanically ability usage feels like it would be better to activate before basic attack but that feels like it might be on a case by case basis. Could also allow for Ability/basic attack → Move. Basically not allowing the movement to be split up on each side.
@@ -594,7 +711,7 @@ Reduce ally units cooldowns!
 
 Movement increased for all ally units.
 
-Depolay an additional unit from sideboard equal to X production points.
+Deploy an additional unit from sideboard equal to X production points.
 
 
 **Kiting prevention and melee unit sticking power:**
@@ -613,7 +730,7 @@ On second thought, its hard to come up with more bonuses for the non-melee class
 Allow for a 5 point sideboard?
 Opportunities to swap units around:
 Start the game with all 15 points worth of units on the lefthand side during deployment, and then can place up to 10 points worth. (This feels really good!!!)
-Could occur after seeing what Faction(s) your opponent has locked in.
+Could occur after seeing what Faction(s) your opponent has locked in. (Could have a moment pre-deployment where you glean some piece of information about their team, like seeing their highest or lowest cost unit, or maybe the player has to make that decision each match on which unit they want to see ahead of time.)
 Could occur after each game of a Best of X match.
 
 
