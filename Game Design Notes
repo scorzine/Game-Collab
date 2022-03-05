@@ -461,6 +461,44 @@ Active:
 
 **Bottom up tribe themes**:
 
+Enemy Turn Damage Synergy Units:
+Self-Turret Unit: (1-Cost)
+HP: 8; AD: 2; Range: 3; Movement: 4
+Passive "On Alert": Ending the turn without using a basic attack will store that attack during the next turn. During that turn, when an enemy moves in range and vision they will automatically be attacked, consuming the stored attack. (This can inherit 1 time attack buffs and modifiers.)
+Ability Tags: Toggle
+Ability Cooldown: 2
+Ability Description: Transforms this unit into a stationary turret, gaining X bonus attack damage but being unable to move.
+Notes: Could have all the units of this tribe share a similar passive, feels like it would be a pretty fun mechanic to build around.
+
+Rapid Fire Unit: (2-Cost)
+HP: 8; AD: 1; Range: 3; Movement: 4
+Passive "On Alert": This unit can attack up to 2 times a turn. Ending the turn without using a basic attack will store that attack during the next turn (Can store more than one). During that turn, when an enemy moves in range and vision they will automatically be attacked, consuming a stored attack. (This can inherit 1 time attack buffs and modifiers.)
+Ability Tags: Buff
+Ability Cooldown: 6
+Ability Description: Until the end of your 2rd turn from now, your first basic attack each turn deals 2 bonus damage.
+Notes: 
+
+Sniper Unit: (2-Cost)
+HP: 8; AD: 2; Range: 3; Movement: 4
+Passive "On Alert": Ending the turn without using a basic attack will store that attack during the next turn. During that turn, when an enemy walks into range they will automatically be attacked, consuming the stored attack. (This can inherit 1 time attack buffs and modifiers.)
+Ability Tags: 
+Ability Cooldown: 4
+Ability Description: Gain vision of closest enemy unit until the end of the enemy's next turn.
+Notes: 
+
+Damage Amp Unit: (4-Cost)
+HP: 10; AD: 0; Range: 0; Movement: 1
+Passive "Wound Reflection": At the end of your enemies turn, deal damage to each enemy equal to the amount of damage they've already taken.
+Ability Tags: Targeted
+Ability Cooldown: 4
+Ability Description: Choose a tile within X range. On your enemy's next turn, whenever an enemy moves within range and vision of this unit, teleport this unit to the chosen tile.
+Notes: 
+
+
+"Self-Turret" unit, ability plants the unit down in a spot, automatically attacking any enemy that comes within range on the enemy's next turn. Maybe the active is more of a toggle? So you have to stay in one mode for longer. Two turn coo Could fit into the tribe idea below:
+
+Tribal bonus where allies deal additional damage to enemies when its not your turn. Works with trap units, counterattack/thornmail units, the unit above ^
+
 "Going Wide" Synergy Units:
 Squad Leader: (2-Cost)
 Passive: Allied units within X range gain 1 attack range.
@@ -521,6 +559,16 @@ Active: enter the shadow realm for X turns or until recast. Upon reentering the 
 
 
 **Control Archetype Units:**
+
+Anti-Aggro Unit: (3-Cost)
+HP: 8; AD: 2; Range: 3; Movement: 4
+Passive "Preying on the Weak": This unit's attacks deal bonus damage to enemies equal to 5 minus that enemy's cost.
+Ability Tags: 
+Ability Cooldown: 3
+Ability Description: Until end of turn, killing an enemy unit with an attack restores health to this unit equal to that enemy's cost.
+Notes: 
+
+
 "Removal" Unit:
 Ability: Destroy a 1-cost unit, low starting cooldown, long recharge cooldown (possibly increasing in strength "destroy a 2-cost unit" etc...)
 
@@ -529,6 +577,15 @@ Trick room/speed changing ability?
 Massive Teleportation ability that teleports all enemy units globally to a specific aoe spot.
 
 **Midrange Archetype Units:**
+
+Anti-Control Unit: (3-Cost)
+HP: 8; AD: 2; Range: 3; Movement: 4
+Passive "Taking Down the Strong": This unit's attacks deal bonus damage to enemies equal to that enemy's cost minus 1.
+Ability Tags: 
+Ability Cooldown: 2
+Ability Description: Highlights an adjacent tile in the direction of the highest cost enemy unit. Can have brightness or color scale with distance (in a range).
+Notes: 
+
 Teleporting Unit:
 
 "Tile Adjuster":
@@ -688,10 +745,6 @@ Hookshot ability that launches a line shot in a direction, connecting with the f
 "Summoner" unit that has a long cooldown ability that teleports an enemy unit to a nearby tile. Maybe have a stacking cooldown that can teleport higher cost units, aka 5 turn cooldown teleports a 1 cost, 10 turns teleports a 2 cost etc.
 
 Mordekaiser/Old Poppy ult ability, where the ability locks the unit in combat with an enemy, making them unable to take or deal damage from any other units. Possibly give a basic attack damage boost to the user as well. Maybe have this unit have a passive like: "this unit deals increased damage and has increased range on attacks and abilites when only one enemy is in this unit's vision." Maybe have the ability itself reduce the visibility of both itself and the enemy being targeted to only include those two units.
-
-"Self-Turret" unit, ability plants the unit down in a spot, automatically attacking any enemy that comes within range on the enemy's next turn. Maybe the active is more of a toggle? So you have to stay in one mode for longer. Two turn cooldown? Could fit into the tribe idea below:
-
-Tribal bonus where allies deal additional damage to enemies when its not your turn. Works with trap units, counterattack units, the unit above ^
 
 **Large Game Balance Changes/Decisions:**
 HEX grid game board??? Inspired by the hexagon youtube video, and I do agree that with the square grid, diagonal based movement and range targeting feels awkward...
