@@ -138,6 +138,10 @@ Ice Behemoth: (3-Cost)
 Passive: Enemies that attack this unit are **Chilled** and have their movement reduced by an additional 1.
 Active: When activated, **Chills** all enemies within X range. At the end of your next turn, **Freeze** all enemies with X range. At the end of your turn after that, deal 10 damage to all enemies within X range.
 
+Frostborn Elemental: (3-Cost)
+Passive: Basic attacking an enemy (melee) will **Freeze** both that unit and this unit until the end of your next turn.
+Active: Deal X damage to all **Frozen** enemies within melee range (can be activated while **Frozen**).
+
 Betrayer of Ice: (3-Cost) (Not an **Ice Walker**)
 Passive: At the end of your turn, any **Chilled** allies within X range are **Unchilled?** and heal for 1 health.
 Active: Spews magma in a line shot in any cardinal direction dealing X damage to all units hit, **Unfreezing** them and all other units within 1 tile of the magma.
@@ -679,6 +683,15 @@ Ability that "Marks an Enemy for Death", that whenever that enemy gets reduced t
 
 **Exhaust**: Passive mechanic for a tribe, attacking or using abilities "exhausts" all remaining movement (for a possible beneficial effect).
 
+Hookshot ability that launches a line shot in a direction, connecting with the first terrain hit (if in range) and pulling the unit to the destination. Any enemies in this path are dealt damage. 
+
+"Summoner" unit that has a long cooldown ability that teleports an enemy unit to a nearby tile. Maybe have a stacking cooldown that can teleport higher cost units, aka 5 turn cooldown teleports a 1 cost, 10 turns teleports a 2 cost etc.
+
+Mordekaiser/Old Poppy ult ability, where the ability locks the unit in combat with an enemy, making them unable to take or deal damage from any other units. Possibly give a basic attack damage boost to the user as well. Maybe have this unit have a passive like: "this unit deals increased damage and has increased range on attacks and abilites when only one enemy is in this unit's vision." Maybe have the ability itself reduce the visibility of both itself and the enemy being targeted to only include those two units.
+
+"Self-Turret" unit, ability plants the unit down in a spot, automatically attacking any enemy that comes within range on the enemy's next turn. Maybe the active is more of a toggle? So you have to stay in one mode for longer. Two turn cooldown? Could fit into the tribe idea below:
+
+Tribal bonus where allies deal additional damage to enemies when its not your turn. Works with trap units, counterattack units, the unit above ^
 
 **Large Game Balance Changes/Decisions:**
 HEX grid game board??? Inspired by the hexagon youtube video, and I do agree that with the square grid, diagonal based movement and range targeting feels awkward...
