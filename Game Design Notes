@@ -590,10 +590,19 @@ Teleporting Unit:
 
 "Tile Adjuster":
 Passive:
-Active: Move another unit to an adjacent tiles. (1 Turn Cooldown)
+Active: Move another unit within X range to an adjacent tile. (1 Turn Cooldown)
 
 
 **Aggro Archetype Units:**
+
+Anti-Midrange? Unit: (3-Cost)
+HP: 8; AD: 2; Range: 3; Movement: 4
+Passive: 
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: 
+Notes: 
+
 Unit whose ability can be used for both forward momentum and also damage.
 
 Shadow Assassin:
