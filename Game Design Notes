@@ -338,6 +338,19 @@ Whirlpools, lava, quicksand?
 
 Spore tribe that implants mind control agents that take hold slowly.
 
+**Poison Faction:**
+
+"Lethal Infector": (2-Cost)
+HP: 1; AD: 2; Range: 3; Movement: 4
+Passive: 
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: 
+Notes:
+
+
+
+
 **Sacrifice Faction:**
 "Stat Devourer":
 Passive: 
@@ -589,8 +602,8 @@ Notes:
 Teleporting Unit:
 
 "Tile Adjuster":
-Passive:
-Active: Move another unit within X range to an adjacent tile. (1 Turn Cooldown)
+Passive: 
+Active: Move another unit within X range to an adjacent tile. (1 Turn Cooldown).
 
 
 **Aggro Archetype Units:**
