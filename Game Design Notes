@@ -33,6 +33,13 @@ Passive (rename passive to "innate" or something maybe?) :
 **Permafrost**: Units that end their turn on **permafrost** terrain are **chilled** until the end of their next turn.
 **Ice**: Units that end their turn on **Ice** terrain are **Chilled** until the end of their next turn. Units that make a directional movement onto **Ice** terrain will slide in the given direction until encountering non-**Ice** terrain. This uses up all remaining movement range for that unit.
 
+**Status Effects:**
+**Chilled** units have their movement range reduced and are **Frozen** if they would be **chilled** again.
+**Frozen** units are completely immobile, cannot basic attack, and cannot use their abilities.
+**Burnt** units take X damage at the end of each turn. Lasts variable number of turns.
+**Electrocuted/Paralyzed** units cannot move or use any abilities that cause movement.
+
+
 **Unit Description Template**
 "Unit Name" *Tribe*: (Team-Cost)
 HP: 1; AD: 2; Range: 3; Movement: 4
@@ -92,9 +99,6 @@ Tribal Bonuses:
 
 
 **Ice Walkers:**
-
-**Chilled** units have their movement range reduced and are **Frozen** if they would be **chilled** again.
-**Frozen** units are completely immobile, cannot basic attack, and cannot use their abilities.
 
 Abilities:
 
@@ -202,6 +206,14 @@ Decorum Disrupter: (3-Cost)
 Passive: At the start of your turn, this unit basic attacks the nearest ally or enemy unit (this doesn't use up the basic attack for the turn).
 Active "Mass Dissension": At the start of your opponent's next turn, each unit on the field attacks the nearest unit.
 
+Fight Mechanic Unit: (3-Cost)
+HP: 10; AD: 5; Range: 1; Movement: 3
+Passive: Attacking an enemy causes this unit to take damage equal to that enemy's attack power.
+Ability Tags: AoE
+Ability Cooldown: 
+Ability Description: Deal damage to all units within 2 range equal to this units attack power plus the amount of damage this unit has taken this turn.
+Notes:
+
 Tribal Bonuses:
 
 "Pain Artistry"
@@ -226,7 +238,7 @@ Active: Places down a statue that appears as unit in light fog.
 
 Ninja Supplanter: (2-Cost)
 Passive: After taking damage from a source, Ninja Supplanter becomes immune to all damage for the rest of the turn.
-Active: The next time an ally would take damage during your opponenets turn, swap places with it and take the damage instead. 
+Active: The next time an ally would take damage during your opponenets turn, swap places with it and take the damage instead.
 
 Oni: (3-Cost)
 Passive: Enemies always have vision of this unit.
@@ -337,19 +349,6 @@ Active: **Thundercloud**: Causes a stormy cloud to appear over a set of tiles an
 Whirlpools, lava, quicksand?
 
 Spore tribe that implants mind control agents that take hold slowly.
-
-**Poison Faction:**
-
-"Lethal Infector": (2-Cost)
-HP: 1; AD: 2; Range: 3; Movement: 4
-Passive: 
-Ability Tags: 
-Ability Cooldown: 
-Ability Description: 
-Notes:
-
-
-
 
 **Sacrifice Faction:**
 "Stat Devourer":
@@ -473,6 +472,18 @@ Active:
 
 
 **Bottom up tribe themes**:
+
+**Basic Aggro Faction**:
+
+
+
+**Basic Midrange Faction**:
+
+
+
+**Basic Control Faction**:
+
+
 
 Enemy Turn Damage Synergy Units:
 Self-Turret Unit: (1-Cost)
@@ -619,8 +630,45 @@ Notes:
 Unit whose ability can be used for both forward momentum and also damage.
 
 Shadow Assassin:
+HP: 6; AD: 2; Range; 1; Movement; 4
+Passive: Attacking an enemy permanently marks them with a shadow tag for the rest of the game.
+Ability Tags: Targeted
+Ability Cooldown: 8
+Active: Pull target unit either with a shadow tag or within melee range into a black hole alongside itself. (Destroys both units.) If there are no more units on the board after this resolves, you win the game.
+Notes: Passive is a little underwhelming.
+
+Poison Unit: (2-Cost)
+HP: 1; AD: 2; Range: 3; Movement: 4
 Passive: 
-Active: Pull target unit into the shadow realm alongside itself. (Destroys both units.)
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: Infect an enemy with a poison killing them after 3 full turns. 
+Notes:
+
+"Elemental Afflicter": (2-Cost)
+HP: 1; AD: 0; Range: 3; Movement: 4
+Passive: Attacking an enemy afflicts them with a status condition based on the current element.
+Ability Tags: Toggle
+Ability Cooldown: 
+Ability Description: Cycles to the next element in the cycle. (Ice->Fire->Electricity)
+Notes:
+
+Shrink Ray Unit: (1-Cost)
+HP: 5; AD: 1; Range: 3; Movement: 4
+Passive: Attacking an enemy reduces their attack by 1 until your next turn.
+Ability Tags: Targeted
+Ability Cooldown: 7
+Ability Description: Shrinks target unit, setting all of their non HP stats to 1 until your next turn.
+Notes: Could also halve the stats instead.
+
+Stat Inverter: (2-Cost)
+HP: 1; AD: 0; Range: 3; Movement: 4
+Passive: 
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: Either doubles target units HP and halves their AD, or vice verse.
+Notes: Could have the effect vary on their current stats, aka doubles the higher one.
+
 
 **Generic Tribal Mechanics**:
 
