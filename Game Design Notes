@@ -28,7 +28,7 @@ Passive (rename passive to "innate" or something maybe?) :
 
 **Grass**: Default tile texture, no special effects.
 **Tall Grass:** Can only be seen by units that are directly adjacent to the current tile.
-**Water**: Reduces movement by one tile when passing through it.
+**Water**: Reduces movement by one tile when moving off of a water tile.
 **Mountain**: Cannot be moved through unless the unit has **flying**.
 **Forest**: Cannot be moved through unless the unit has **flying**. Can also be destroyed by damage.
 **Permafrost**: Units that end their turn on **Permafrost** terrain are **Chilled** until the end of their next turn.
@@ -768,7 +768,7 @@ Ability Cooldown:
 Ability Description: Infect an enemy with a poison killing them after 3 full turns. 
 Notes:
 
-"Elemental Afflicter": (2-Cost)`
+"Elemental Afflicter": (2-Cost)
 HP: 1; AD: 0; Range: 3; Movement: 4
 Passive: Attacking an enemy afflicts them with a status condition based on the current element.
 Ability Tags: Toggle
@@ -803,11 +803,11 @@ Tribal bonus that causes enemies to explode on death dealing damage equal to the
 
 Tribal bonus that reduces the starting cooldown of allied units abilities.
 
-**Abilities that "Break     the Rules":**
-Passive/class of unit tha  t allows for multiple basic attacks on the same turn (with lower attack damage of course).
+**Abilities that "Break the Rules":**
+Passive/class of unit that allows for multiple basic attacks on the same turn (with lower attack damage of course).
 
-Assembly line/f actory robot faction that "recycles" dead units into production points to deploy from the sideboard.
-**Recycling R obot Faction:**
+Assembly line/factory robot faction that "recycles" dead units into production points to deploy from the sideboard.
+**Recycling Robot Faction:**
 
 
 Tribal Bonus:
@@ -815,16 +815,9 @@ Tribal Bonus:
 4+: 
 5+: 
 
-
-**Generic Unit Mechanics**:
-
-"Bounty Hunter" ability that can only be used after killing or damaging a marked (by passive) enemy.
-
-"Vengeance" ability that can only be used on a unit that dealt damage to the activating unit (or perhaps increased damage).
+**Teleportation Units:**
 
 Ability that creates a tunnel/teleporter between two points.
-
-"Initiate" Ability that gains the tribal tag of target ally unit (this becomes redundant if an amalgam all tribe unit is printed).
 
 Ability that mass teleports all units in an AoE around them.
 
@@ -833,6 +826,23 @@ Ability that teleports a singe target (ally/enemy) unit.
 Ability that randomly swaps the location of all units.
 
 Ability that swaps an ally and an enemy unit.
+
+Ability to teleport to a random location on the map. (Since this could potentially be extremely annoying and uninteractive, cap the max uses to 3)
+Passive that deals AoE damage on death.
+
+Passive that heals ally units whenever they teleport.
+
+Passive that damages units whenever they teleport.
+
+"Summoner" unit that has a long cooldown ability that teleports an enemy unit to a nearby tile. Maybe have a stacking cooldown that can teleport higher cost units, aka 5 turn cooldown teleports a 1 cost, 10 turns teleports a 2 cost etc.
+
+**Generic Unit Mechanics**:
+
+"Bounty Hunter" ability that can only be used after killing or damaging a marked (by passive) enemy.
+
+"Vengeance" ability that can only be used on a unit that dealt damage to the activating unit (or perhaps increased damage).
+
+"Initiate" Ability that gains the tribal tag of target ally unit (this becomes redundant if an amalgam all tribe unit is printed).
 
 Ability that upgrades after each use. (Fire Blast → Lightning Bolt → Meteor)
 
@@ -851,14 +861,6 @@ Ability that activates only if they are the only remaining ally unit on the boar
 Passive that reveals itself wherever it is in the fog of war.
 
 "Inter-dimensional Sacrifice" ability that destroys any number of your own units to summon a unit from your deck with cost equal to the total cost of units sacrificed (-1). Robot Tribal?
-
-Ability to teleport to a random location on the map. (Since this could potentially be extremely annoying and uninteractive, cap the max uses to 3)
-
-Passive that deals AoE damage on death.
-
-Passive that heals ally units whenever they teleport.
-
-Passive that damages units whenever they teleport.
 
 Passive that brings fog of war/stealth when moving that is then broken after making a basic 
 attack or activating certain abilities.
@@ -929,6 +931,8 @@ Ability that "Marks an Enemy for Death", that whenever that enemy gets reduced t
 
 Ability that deals double damage to unseen units.
 
+"Expose Soul" "Tethered Core" "Quantum Entaglement" Ability: Similar to Illaoi E, creates a token representing target enemy unit, dealing enough damage to that token kills the enemy.
+
 **Assassin:** after this unit deals lethal damage to an enemy, this unit may move again/this unit may move a set X tiles.
 
 **Tracking Shot:** Low cool down low damage move that allows the unit to move an additional tile in the direction the projectile was fired if it connects with an enemy.
@@ -938,8 +942,6 @@ Ability that deals double damage to unseen units.
 **Exhaust** "Power Transformation": Passive mechanic for a tribe, attacking or using abilities "exhausts" all remaining movement (for a possible beneficial effect).
 
 Hookshot ability that launches a line shot in a direction, connecting with the first terrain hit (if in range) and pulling the unit to the destination. Any enemies in this path are dealt damage. 
-
-"Summoner" unit that has a long cooldown ability that teleports an enemy unit to a nearby tile. Maybe have a stacking cooldown that can teleport higher cost units, aka 5 turn cooldown teleports a 1 cost, 10 turns teleports a 2 cost etc.
 
 Mordekaiser/Old Poppy ult ability, where the ability locks the unit in combat with an enemy, making them unable to take or deal damage from any other units. Possibly give a basic attack damage boost to the user as well. Maybe have this unit have a passive like: "this unit deals increased damage and has increased range on attacks and abilites when only one enemy is in this unit's vision." Maybe have the ability itself reduce the visibility of both itself and the enemy being targeted to only include those two units.
 
