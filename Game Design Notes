@@ -14,6 +14,7 @@ Basic Attack Range:
 Basic Attack Damage:
 Ability Cooldown:
 Ability Starting Cooldown:
+"Jump Start" (Cost reduction at start of game.)
 Passive (rename passive to "innate" or something maybe?) :
 
 **Ability Targeting Categories:** (Abilities' should have a categorical system that has some kind of displayed tag on the ability description. EG some category of abilities can have their RANGE buffed by other effects. Could make the destinction between abilities that deal damage vs other effects, this decides the nomanclature for Ability Power vs Ability Damage)
@@ -25,13 +26,18 @@ Passive (rename passive to "innate" or something maybe?) :
 
 **Terrain Types:**
 
-**Grass**: 
+**Grass**: Default tile texture, no special effects.
 **Tall Grass:** Can only be seen by units that are directly adjacent to the current tile.
-**Water**: Reduces movement by one tile.
+**Water**: Reduces movement by one tile when passing through it.
 **Mountain**: Cannot be moved through unless the unit has **flying**.
 **Forest**: Cannot be moved through unless the unit has **flying**. Can also be destroyed by damage.
-**Permafrost**: Units that end their turn on **permafrost** terrain are **chilled** until the end of their next turn.
-**Ice**: Units that end their turn on **Ice** terrain are **Chilled** until the end of their next turn. Units that make a directional movement onto **Ice** terrain will slide in the given direction until encountering non-**Ice** terrain. This uses up all remaining movement range for that unit.
+**Permafrost**: Units that end their turn on **Permafrost** terrain are **Chilled** until the end of their next turn.
+**Ice**: Units that end their turn on **Ice** terrain are **Chilled** until the end of their next turn. Units that make a directional movement onto **Ice** terrain will slide in the given direction until encountering non-**Ice** terrain. This uses up all remaining movement for that unit.
+
+**Fog Visibility**
+Fully Visible in Light Fog: Mountain, Water, Ice
+Partially Visible in Light Fog (Dark Blobby Shape): Forest, Units
+Completely Invisibe in Light Fog: Tall Grass, Permafrost
 
 **Status Effects:**
 **Chilled** units have their movement range reduced and are **Frozen** if they would be **chilled** again.
@@ -42,13 +48,14 @@ Passive (rename passive to "innate" or something maybe?) :
 
 **Unit Description Template**
 "Unit Name" *Tribe*: (Team-Cost)
-HP: 1; AD: 2; Range: 3; Movement: 4
+HP: 3; AD: 3; Range: 3; Movement: 3
 Passive: 
 Ability Tags: 
 Ability Cooldown: 
 Ability Description: 
 Notes:
 
+Maybe do: HP; ATK; RCH (reach?); MOV
 
 **Unit Archetypes/Tribes**
 
@@ -400,7 +407,7 @@ Active: "Pray": Gives X devotion to player.
 
 Shrine Builder Unit:
 Passive: Improves nearby building stats scaling with devotion.
-Active: Place a shrine on target tile that passively increases devotion at the end of each turn. (Also provides a flat devotion bonus as long as it stays on the board?)
+Active: Place a shrine construct on target tile that passively increases devotion at the end of each turn. (Also provides a flat devotion bonus as long as it stays on the board?)
 
 Obelisk Builder Unit:
 Passive: 
@@ -469,6 +476,120 @@ Active: Burrows through the ground to target tile, leaving an entrance/exit tile
 "Yuumi" Unit:
 Passive: Can be deployed on the same tile as another allied unit and "equips" on top of it.
 Active: 
+
+MtG Recreated:
+
+"Waiting in the Weeds": (2-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: 
+Ability Tags: 
+Ability Cooldown: 5
+Ability Description: For each non-token unit that hasn't taken an action this turn, create a 1;1;3;3 token.
+Notes: Board in a box, need to play defensively to get value.
+
+"Vizkopa Confessor (Vaguely)": (3-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: The first time an ally dies on each of your turns, create a 1;1;1;3 token.
+Ability Tags: 
+Ability Cooldown: 3
+Ability Description: Deal 1 damage to any number of target allies. Deal damage to an enemy equal to the number of allies dealt damage plus the number of allies destroyed by this ability.
+Notes:
+
+"Grozoth": (3-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: Whenever an allied 3-Cost unit dies, return it to your sideboard.
+Ability Tags: One time use?
+Ability Cooldown: 9
+Ability Description: Swap this unit for another 3-Cost unit from your sideboard, when that unit dies return this unit to that tile.
+Notes: High cost tribal, option to forgo unit stats to get a different high cost unit. High cost stats for utility, but can't attack.
+
+"Barter in Blood": (3-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: Whenever a unit dies on your turn, gain 2 attack power until the end of turn. Whenever a unit dies not on your turn, gain a shield that blocks the next 1 damage that turn, stacking for each unit that died.
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: At the start of the next two turns, the active player destroys two of their own units.
+Notes: This design feels pretty sweet too, the way the passive works on each turn/each players unit could be adjusted.
+
+"Jodah": (5-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: This abilities cost is permanently reduced by 1 for each unit of a unique faction you control.
+Ability Tags: 
+Ability Cooldown: 10
+Ability Description: Summon a 10 HP; 5 AD; 3 Range; 3 Movement Mechanical Dragon token.
+Notes: Flying, get around high costs by having varied manabase. This design feels really sweet actually, would lead to a really cool "menagerie" control comp with a clear token wincon. If its too easy to activate, increase the base cooldown and increase the reduction per faction.
+
+"Marchesa the Black Rose": (4-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: Whenever an ally attacks an enemy with higher power than its own, give that unit plus 2 attack power.
+Ability Tags: 
+Ability Cooldown: 6
+Ability Description: If any allied units that were buffed by this unit's passive this turn die before the start of your next turn, ressurect them.
+Notes: Dethrone, permanent buff when attacking enemy with higher stat. ressurect buffed units
+
+"Ryusei, the Falling Star": (2-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: When this unit is destroyed, deal 5 damage to all units within X range.
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: Force target enemy to attack this unit. Must target while in that enemy's attack range.
+Notes: Flying, deals AoE damage on death.
+
+"Sai, Master Thopterist": (3-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: Whenever an allied unit creates a construct (an unmoving, automatic unit token), create a 1 HP; 1 AD; 3 Range; 2 Movement "Construct Defender" token unit.
+Ability Tags: Targeted
+Ability Cooldown: 4
+Ability Description: Destroy an allied construct and construct defender to reduce all allied unit's cooldowns by 2.
+Notes: Creating tokens when creating artifacts, sacrifice two artifacts for draw. Attempting to replace card draw effects by cooldown reduction, which also provides "value" but is a little less interesting than card draw imo.
+
+"Tethmos High Priest": (3-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: Activating an allied ability that targets an allied unit on the field, in the graveyard, or in your sideboard reduces the cooldown of this unit's ability by 2.
+Ability Tags: 
+Ability Cooldown: 10
+Ability Description: Ressurect a 1-Cost allied unit.
+Notes: Targeted spells, ressurection low cost. Tbh this design feels very weird and forced in this game, but who knows, might be part of an interest archetype.
+
+Sac to Buff Unit: (1-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: 
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: Destroy this unit and give target ally within X range attack power equal to this unit's attack power, and a temporary shield equal to this units HP.
+Notes: Still feels pretty forced.
+
+"Naru Meha": (3-Cost)
+HP: 3; AD: 3; Range: 3; Movement: 3
+Passive: "Wizard" allies within X range, get 1 additional HP and attack power.
+Ability Tags: One time use
+Ability Cooldown: (Starting Cooldown: 0) 
+Ability Description: Teleport this unit to target tile within X range of an allied "Wizard". The next "Wizard" ability you active this turn is copied.
+Notes: Flash, Copying instant/sorc, tribal buff. 
+
+"Healer's Hawk": (1-Cost)
+HP: 4; AD: 2; Range: 3; Movement: 4
+Passive: After attacking an enemy, that enemy cannot target this unit with it's basic attacks until the end of the next turn.
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: The next time target unit would take damage this turn, it takes that much minus 1.
+Notes: Passive feels kinda hexproof-y. I wonder if just giving it self-lifelink on passive would be too strong for a basic unit, because it would still be fragile with a low max HP.
+
+"Grenzo": (1-Cost)
+HP: 5; AD: 1; Range: 3; Movement: 3
+Passive: This unit gains 1 attack damage and 2 HP for each unspent Production Point when you start the game.
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: Deploy a unit from your sideboard who's cost is less than the number of unspent Production Points you have. This uses up Production Points equal to the cost of the unit deployed.
+Notes: The passive doesn't have to use up the unspent points, and could allow for synergy with other units that have a similar mechanic.
+
+Unspent Production Points Unit: (1-Cost)
+HP: 1; AD: 2; Range: 3; Movement: 3
+Passive: Create a token copy of this unit for each unspent Production Point when you start the game.
+Ability Tags: 
+Ability Cooldown: 
+Ability Description: 
+Notes:
 
 
 **Bottom up tribe themes**:
@@ -600,6 +721,8 @@ Trick room/speed changing ability?
 
 Massive Teleportation ability that teleports all enemy units globally to a specific aoe spot.
 
+Wincon unit that reveals itself and is unable to move while channeling wincon ability
+
 **Midrange Archetype Units:**
 
 Anti-Control Unit: (3-Cost)
@@ -624,8 +747,8 @@ HP: 8; AD: 2; Range: 3; Movement: 4
 Passive: 
 Ability Tags: 
 Ability Cooldown: 
-Ability Description: 
-Notes: 
+Ability Description: Take control of target unit until the end of your turn.
+Notes: The unit is then treated as an ally, and can't be targeted as you would an enemy.
 
 Unit whose ability can be used for both forward momentum and also damage.
 
@@ -645,7 +768,7 @@ Ability Cooldown:
 Ability Description: Infect an enemy with a poison killing them after 3 full turns. 
 Notes:
 
-"Elemental Afflicter": (2-Cost)
+"Elemental Afflicter": (2-Cost)`
 HP: 1; AD: 0; Range: 3; Movement: 4
 Passive: Attacking an enemy afflicts them with a status condition based on the current element.
 Ability Tags: Toggle
@@ -680,11 +803,11 @@ Tribal bonus that causes enemies to explode on death dealing damage equal to the
 
 Tribal bonus that reduces the starting cooldown of allied units abilities.
 
-**Abilities that "Break the Rules":**
-Passive/class of unit that allows for multiple basic attacks on the same turn (with lower attack damage of course).
+**Abilities that "Break     the Rules":**
+Passive/class of unit tha  t allows for multiple basic attacks on the same turn (with lower attack damage of course).
 
-Assembly line/factory robot faction that "recycles" dead units into production points to deploy from the sideboard.
-**Recycling Robot Faction:**
+Assembly line/f actory robot faction that "recycles" dead units into production points to deploy from the sideboard.
+**Recycling R obot Faction:**
 
 
 Tribal Bonus:
@@ -800,7 +923,11 @@ Stealth/Camouflage ability with a number next to it indicating how strong it is 
 
 "Nearsighted" ability that reduces vision either like Graves Smokescreen or Nocturne ult.
 
+Unit with very high attack range but low vision range.
+
 Ability that "Marks an Enemy for Death", that whenever that enemy gets reduced to X health or below, this unit executes it and teleports to tile it was previously on.
+
+Ability that deals double damage to unseen units.
 
 **Assassin:** after this unit deals lethal damage to an enemy, this unit may move again/this unit may move a set X tiles.
 
@@ -808,7 +935,7 @@ Ability that "Marks an Enemy for Death", that whenever that enemy gets reduced t
 
 **Rampage:** After this unit deals lethal damage to an enemy, this unit has its basic attack refreshed and may move an additional X tiles that remain within view of an enemy.
 
-**Exhaust**: Passive mechanic for a tribe, attacking or using abilities "exhausts" all remaining movement (for a possible beneficial effect).
+**Exhaust** "Power Transformation": Passive mechanic for a tribe, attacking or using abilities "exhausts" all remaining movement (for a possible beneficial effect).
 
 Hookshot ability that launches a line shot in a direction, connecting with the first terrain hit (if in range) and pulling the unit to the destination. Any enemies in this path are dealt damage. 
 
@@ -817,6 +944,8 @@ Hookshot ability that launches a line shot in a direction, connecting with the f
 Mordekaiser/Old Poppy ult ability, where the ability locks the unit in combat with an enemy, making them unable to take or deal damage from any other units. Possibly give a basic attack damage boost to the user as well. Maybe have this unit have a passive like: "this unit deals increased damage and has increased range on attacks and abilites when only one enemy is in this unit's vision." Maybe have the ability itself reduce the visibility of both itself and the enemy being targeted to only include those two units.
 
 **Large Game Balance Changes/Decisions:**
+How to handle units/objects attempting to teleport/move to a tile thats already taken?
+
 HEX grid game board??? Inspired by the hexagon youtube video, and I do agree that with the square grid, diagonal based movement and range targeting feels awkward...
 Question is do you have the paralell sides of the hexagon face vertically or horizontally along the board. Up/Down edges makes moving directly across the board easier, and also gives more options when moving forward at an angle for a flank. Aesthetic bonus with this orientation is that the front and back of the map are defined by a clean flat edge along both sides.
 Downsides: Difficult to move with standard arrow key controls. Could get around this by having left/right (or up/down depending on orientation) arrow keys toggle between the two possible tiles and then requiring a button press to lock in the movement command. Another way to try keyboard controls would be to use "QWEASD", where WS are still up down, and then QE are up left and up right respectively, and AD are down left and down right respectively. Another option is to use arrow keys (or WASD theoretically), and just have left/right rotate the unit and then up/down locks in the movement forward or backwards based on where that unit is facing.
@@ -868,6 +997,8 @@ Opportunities to swap units around:
 Start the game with all 15 points worth of units on the lefthand side during deployment, and then can place up to 10 points worth. (This feels really good!!!)
 Could occur after seeing what Faction(s) your opponent has locked in. (Could have a moment pre-deployment where you glean some piece of information about their team, like seeing their highest or lowest cost unit, or maybe the player has to make that decision each match on which unit they want to see ahead of time.)
 Could occur after each game of a Best of X match.
+
+Concept for this: Build a team using 15 production points before matchmaking. After an opponent is found and you are loaded onto the map, each player gets to see exactly what team the opponent brought using their 15 points. Then both players deploy 15 points worth of their units and the game begins. (Actually quite similar to Pokemon using 4/6 mons)
 
 
 **Levels to the stealth that is synced with the fog:**
